@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SM MEHEDI HASAN</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #0d1117;
+        color: #c9d1d9;
+        line-height: 1.6;
+    }
+    header {
+        background-color: #161b22;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    header h1 {
+        font-size: 1.2rem;
+        color: #fff;
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+    nav {
+        display: flex;
+    }
+    nav a {
+        color: #ccd6f6;
+        margin-left: 15px;
+        text-decoration: none;
+        font-size: 0.95rem;
+    }
+    nav a:hover {
+        color: #58a6ff;
+    }
+    section {
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+    }
+    .box {
+        background: #161b22;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+    img.profile {
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 4px solid #58a6ff;
+        box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+    }
+
+    .intro-text h2 {
+        margin-top: 0;
+        font-size: 1.8rem;
+        color: #fff;
+    }
+
+    .intro-text p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #c9d1d9;
+    }
+
+    .highlight {
+        color: #58a6ff;
+        font-weight: bold;
+    }
+
+    .flex {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 30px;
+    }
+
+    .flex p {
+        flex: 1;
+        font-size: 1.1rem;
+    }
+
+    .flex img {
+        flex-shrink: 0;
+    }
+    .about-images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .about-images img {
+        max-width: 32%;
+        border-radius: 6px;
+    }
+    .experience-box {
+        margin-bottom: 15px;
+    }
+    .experience-logo {
+        max-height: 40px;
+        display: block;
+        margin-bottom: 10px;
+    }
+    .education-box {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .education-box img {
+        max-height: 50px;
+        display: block;
+        margin: auto;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: #161b22;
+    }
+    footer a {
+        color: #58a6ff;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+    .section-title {
+        font-size: 2rem;
+        color: #58a6ff;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #58a6ff;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .about-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .about-text {
+        flex: 1 1 55%;
+        font-size: 1.05rem;
+        line-height: 1.8;
+    }
+
+    .about-images {
+        flex: 1 1 40%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .about-images img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .slider {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .slide-track {
+        display: flex;
+        animation: slide 15s linear infinite;
+    }
+
+    .slide {
+        width: 400px;
+        height: 250px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    /* Animation */
+    @keyframes slide {
+        0%   { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+
+    .about-images img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(88, 166, 255, 0.6);
+    }
+    
+    /* Menu Toggle Styles */
+    #menu-toggle {
+        display: none;
+    }
+    
+    #menu-icon {
+        font-size: 26px;
+        cursor: pointer;
+        display: none;
+        color: #fff;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+        /* Tablet styles */
+        .profile {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .flex {
+            gap: 20px;
+        }
+        
+        .intro-text h2 {
+            font-size: 1.5rem;
+        }
+        
+        .intro-text p {
+            font-size: 1rem;
+        }
+        
+        .section-title {
+            font-size: 1.7rem;
+        }
+        
+        .about-text {
+            font-size: 1rem;
+        }
+        
+        .slide {
+            width: 350px;
+            height: 220px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        /* Mobile and small tablet styles */
+        header {
+            padding: 10px 15px;
+        }
+        
+        .flex {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .profile {
+            width: 180px;
+            height: 180px;
+        }
+        
+        .intro-text h2 {
+            font-size: 1.4rem;
+            text-align: center;
+        }
+        
+        .intro-text p {
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .about-container {
+            flex-direction: column;
+        }
+        
+        .about-text {
+            font-size: 0.95rem;
+        }
+        
+        .about-images {
+            grid-template-columns: 1fr;
+            margin-top: 20px;
+        }
+        
+        .slide {
+            width: 300px;
+            height: 200px;
+        }
+        
+        /* Navigation for mobile */
+        #navbar {
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background: #0A192F;
+            width: 100%;
+            display: none;
+            padding: 15px 0;
+        }
+        
+        #navbar a {
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        #menu-icon {
+            display: block;
+        }
+        
+        /* Experience boxes */
+        .experience-box {
+            padding: 15px;
+        }
+        
+        /* Education boxes */
+        .education-box {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+        
+        .education-box > div {
+            flex: 1 1 100%;
+        }
+        
+        /* Skills section */
+        #skills {
+            padding: 20px 10px;
+        }
+        
+        #skills > div {
+            width: 150px;
+            padding: 15px;
+        }
+        
+        /* Footer */
+        footer > div {
+            min-width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        /* Small mobile devices */
+        .profile {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .intro-text h2 {
+            font-size: 1.3rem;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+        }
+        
+        .slide {
+            width: 250px;
+            height: 180px;
+        }
+        
+        /* Skills section */
+        #skills > div {
+            width: 130px;
+            padding: 12px;
+        }
+        
+        #skills > div i {
+            font-size: 28px;
+        }
+        
+        #skills > div span {
+            font-size: 12px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>S. M MEHEDI HASAN</h1>
+
+  <!-- Menu Toggle -->
+  <input type="checkbox" id="menu-toggle">
+  <label for="menu-toggle" id="menu-icon">&#9776;</label>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<script>
+(function() {
+  function responsiveHeader(){
+      const navbar = document.getElementById('navbar');
+      const icon = document.getElementById('menu-icon');
+      if(window.innerWidth <= 768){
+          navbar.style.flexDirection = 'column';
+          navbar.style.position = 'absolute';
+          navbar.style.top = '60px';
+          navbar.style.left = '0';
+          navbar.style.background = '#0A192F';
+          navbar.style.width = '100%';
+          navbar.style.display = 'none';
+          Array.from(navbar.children).forEach(a => {
+              a.style.margin = '10px 0';
+              a.style.textAlign = 'center';
+          });
+          icon.style.display = 'block';
+      } else {
+          navbar.style.display = 'flex';
+          navbar.style.flexDirection = 'row';
+          icon.style.display = 'none';
+      }
+  }
+
+  responsiveHeader();
+  window.addEventListener('resize', responsiveHeader);
+
+  document.getElementById('menu-toggle').addEventListener('change', function(){
+      const navbar = document.getElementById('navbar');
+      navbar.style.display = this.checked ? 'flex' : 'none';
+  });
+})();
+</script>
+
+
+<section id="home">
+    <div class="box flex">
+        <img src="./images/IMG_20231014_124927.jpg" alt="Profile" class="profile">
+        <div class="intro-text">
+            <h2>Hi, I'm <span class="highlight">SM Mehedi Hasan</span></h2>
+            <p>Third-year <span class="highlight">Computer Science</span> student at 
+                <strong>American International University-Bangladesh</strong> with a deep passion for 
+                <span class="highlight">technology</span>, innovation, and problem-solving.  
+                Skilled in crafting <span class="highlight">modern, responsive applications</span> and eager to take on 
+                challenges that make a meaningful difference. Always exploring new tools, frameworks, and 
+                ideas to create solutions that are not only functional but inspiring.</p>
+        </div>
+    </div>
+</section>
+
+
+<section id="about">
+    <div class="box about-container">
+        <div class="about-text">
+            <h1 class="section-title">About Me</h1>
+            <p>
+                I am a proactive and detail-oriented <span class="highlight">Computer Science undergraduate</span> 
+                with experience in administrative support, student engagement, and event coordination. 
+                Former Campus Ambassador at <strong>ICT Olympiad Bangladesh</strong>, skilled in Microsoft Office, 
+                communication, and organizing campus-wide initiatives.
+            </p>
+            <p>
+                Demonstrates a strong work ethic, professional demeanor, and the ability to work both independently 
+                and collaboratively. Adept at handling multiple responsibilities with efficiency and enthusiasm. 
+                Quickly adapting, tech-savvy, and eager to contribute to a structured academic environment with 
+                professionalism and a <span class="highlight">can-do attitude</span>.
+            </p>
+        </div>
+      <div class="slider">
+    <div class="slide-track">
+        <img src="./images/certificate.jpg" alt="Addressing audience" class="slide">
+        <img src="./images/jetto.jpg" alt="Event" class="slide">
+        <img src="./images/presenattion.jpg" alt="Presentation" class="slide">
+        <img src="./images/addresss.jpg" alt="Addressing audience" class="slide">
+        <img src="./images/online_event.jpg" alt="Event" class="slide">
+    </div>
+</div>
+
+    </div>
+</section>
+
+
+<section id="experience">
+    <h1 class="section-title">Experience</h1>
+    <hr>
+    <div class="box experience-box">
+    <a href="https://www.ictolympiadbangladesh.com/" target="_blank" style="text-decoration:none;">
+        <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
+    <img src="./images/ict.jpg" alt="ICT Olympiad" 
+         style="width:200px; height:auto; object-fit:contain; display:block;">
+</div>
+
+    </a>
+    <h3 style="color:#58a6ff; text-align:center; margin-bottom:5px;">
+        <a href="https://www.ictolympiadbangladesh.com/" target="_blank" style="color:#58a6ff; text-decoration:none;">Campus Ambassador S2 - ICT Olympiad Bangladesh</a>
+    </h3>
+    <p style="color:#8b949e; text-align:center; font-style:italic; margin-top:0;">Oct 2024 – May 2025</p>
+    <div style="color:#c9d1d9; line-height:1.6; padding-left:10px;">
+    <p>Greeted and communicated with students, teachers, and organizers during events, ensuring a smooth campus outreach experience.
+    Responded to inquiries and promoted programs, helping students and participants understand registration procedures and event schedules.
+    Maintained accurate records and collaborated with the central team to ensure proper coordination and smooth execution of all activities.</p>
+</div>
+
+</div>
+
+
+   <div class="box experience-box">
+    <a href="https://www.youtube.com/@TriangleTech71" target="_blank" style="text-decoration:none;">
+        <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
+    <img src="./images/traYoutube_logo.png" alt="Youtube" 
+         style="width:200px; height:auto; object-fit:contain; display:block;">
+</div>
+
+    </a>
+    <h3 style="color:#58a6ff; text-align:center; margin-bottom:5px;">
+        <a href="https://www.youtube.com/@TriangleTech71" target="_blank" style="color:#58a6ff; text-decoration:none;">
+            Content Creator – YouTube (@TriangleTech71)
+        </a>
+    </h3>
+    <p style="color:#8b949e; text-align:center; font-style:italic; margin-top:0;">Nov 2023 – Present</p>
+    <div style="color:#c9d1d9; line-height:1.6; padding-left:10px;">
+        <p>Created and managed educational programming content, focusing on computer science concepts and software tutorials.
+        Designed engaging thumbnails and titles to improve visibility and audience retention.
+        Shared tutorials and study strategies while actively engaging with the audience to build a learning community.</p>
+    </div>
+</div>
+
+</section>
+
+<section id="education">
+    <h1 class="section-title">Education</h1>
+    <hr>
+
+    
+    <!-- AIUB -->
+   <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
+    <img src="./images/aiub-logo.png" alt="aiub" 
+         style="width:200px; height:auto; object-fit:contain; display:block;">
+</div>
+
+
+        </div>
+        <!-- Description -->
+        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
+            <h4 style="color:#58a6ff; margin-bottom:5px;">BSc, Computer Science and Engineering</h4>
+            <p style="margin:2px 0;"><strong>American International University-Bangladesh (AIUB), Dhaka</strong> - 
+            <a href="https://www.aiub.edu" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
+            <p style="color:#8b949e; margin:2px 0;">2022 – Present | CGPA: 3.71</p>
+            <p>The Bachelor of Science in Computer Science and Engineering at AIUB equips students with a strong foundation in software development, 
+                data structures, algorithms, and emerging technologies. Emphasis is placed on hands-on projects, teamwork, and developing problem-solving skills, 
+                preparing graduates for both industry and research opportunities. Coursework includes programming, databases, networks, and AI.</p>
+        </div>
+        <hr>
+    </div>
+
+    <!-- HSC -->
+    <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
+    <img src="./images/gssc.jpg" alt="gssc" 
+         style="width:200px; height:auto; object-fit:contain; display:block;">
+</div>
+
+        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
+            <h4 style="color:#58a6ff; margin-bottom:5px;">Higher Secondary Certificate (HSC)</h4>
+            <p style="margin:2px 0;"><strong>Govt. Shah Sultan College, Bogura - 5800</strong></p>
+            <a href="https://govssc.edu.bd/" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
+            <p style="color:#8b949e; margin:2px 0;">Result: 5.0/5.0</p>
+            <p>The Higher Secondary Certificate program at Govt. Shah Sultan College provided a solid academic foundation in science and mathematics, 
+            developing critical thinking, analytical skills, and a strong work ethic that prepared me for undergraduate studies in Computer Science.</p>
+        </div>
+        <hr>
+    </div>
+
+    <!-- SSC -->
+   <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
+    <img src="./images/plsc.png" alt="plsc" 
+         style="width:200px; height:auto; object-fit:contain; display:block;">
+</div>
+
+        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
+            <h4 style="color:#58a6ff; margin-bottom:5px;">Secondary School Certificate (SSC)</h4>
+            <p style="margin:2px 0;"><strong>Police Lines School and College, Bogura - 5800</strong></p>
+            <a href="https://plscb.edu.bd/" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
+            <p style="color:#8b949e; margin:2px 0;">Result: 5.0/5.0</p>
+            <p>The Secondary School Certificate curriculum emphasized fundamental science, mathematics, and critical reasoning, fostering a disciplined and curious mindset 
+            that laid the groundwork for future studies in Computer Science.</p>
+        </div>
+        <hr>
+    </div>
+
+</section>
+
+
+<!-- Font Awesome (place in <head> or before this section) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<section id="skills" style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;padding:30px;">
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fab fa-microsoft" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Microsoft Office</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-comments" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Professional Communication</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-users" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Team Coordination</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-bullhorn" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Event & Campaign Support</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-user-graduate" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Student Outreach</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-tasks" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Administrative Tasks</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-chalkboard" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Presentation Prep</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-bolt" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Quick Learner</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-code" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">C#</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fab fa-python" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Python</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-database" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">SQL</span>
+  </div>
+
+</section>
+
+<footer id="contact" style="background:#161b22; padding:40px 20px; color:#c9d1d9; display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; border-top:2px solid #58a6ff; box-shadow:0 -5px 20px rgba(88,166,255,0.2);">
+
+  <!-- About / Logo -->
+  <div style="flex:1; min-width:250px;">
+    <h2 style="color:#58a6ff; margin-bottom:10px;">S. M Mehedi Hasan</h2>
+    <p>Computer Science Student | Researcher | Tech Enthusiast</p>
+    <p>Always exploring innovative solutions and creating impactful projects.</p>
+  </div>
+
+  <!-- Contact -->
+  <div style="min-width:200px;">
+    <h3 style="color:#58a6ff; margin-bottom:10px;">Contact Me</h3>
+    <a href="mailto:hasanmehedi63395@gmail.com" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;"> 
+      <img src="./images/gmail-logo-on-transparent-white-background-free-vector.jpg" alt="Gmail" style="width:25px; height:25px;"> Gmail 
+    </a>
+    <a href="https://facebook.com" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
+      <img src="./images/fac.jpg" alt="Facebook" style="width:25px; height:25px;"> Facebook
+    </a>
+    <a href="https://www.linkedin.com/in/sm-mehedihasan25/" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
+      <img src="./images/LinkedIn_logo_initials.png" alt="LinkedIn" style="width:25px; height:25px;"> LinkedIn
+    </a>
+  </div>
+
+  <!-- Address -->
+  <div style="flex:1; min-width:250px;">
+    <h3 style="color:#58a6ff; margin-bottom:10px;">Address</h3>
+    <p>Kuratoli, Dhaka, Bangladesh</p>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.384132915767!2d90.4217865!3d23.8209686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c6489f1f33bf%3A0x8cf48cff0b79ee99!2sKuratolii%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1692100000000!5m2!1sen!2sbd" 
+      width="100%" height="150" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+</footer>
+
+<style>
+  footer a:hover {
+    color:#58a6ff;
+    transform: translateY(-3px);
+  }
+  footer iframe {
+    box-shadow: 0 0 10px rgba(88,166,255,0.3);
+  }
+  
+  @media (max-width: 768px) {
+    footer > div {
+      min-width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    footer {
+      padding: 30px 15px;
+    }
+  }
+</style>
+
+</body>
+</html>
