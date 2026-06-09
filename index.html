@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SM MEHEDI HASAN - Portfolio</title>
+<title>SM MEHEDI HASAN</title>
 <style>
     body {
         margin: 0;
@@ -212,78 +212,34 @@
         color: #fff;
     }
     
-    /* Research Section Styles */
-    .research-grid {
-        display: flex;
-        gap: 25px;
-        flex-wrap: wrap;
-    }
-    .research-sub {
-        flex: 1;
-        min-width: 250px;
-        background: #0d1117;
-        padding: 20px;
-        border-radius: 8px;
-        border-left: 3px solid #58a6ff;
-    }
-    .research-sub h3 {
-        color: #58a6ff;
-        margin-bottom: 15px;
-        font-size: 1.3rem;
-    }
-    .paper-item {
-        background: #161b22;
-        padding: 12px;
-        border-radius: 6px;
-        margin-bottom: 12px;
-    }
-    .paper-item strong {
-        color: #58a6ff;
-    }
-    .status-badge {
-        background: #23863633;
-        padding: 2px 8px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        display: inline-block;
-        margin-left: 8px;
-    }
-    .ieom-detail {
-        font-size: 0.8rem;
-        color: #8b949e;
-        margin-top: 5px;
-    }
-    .cert-item {
-        padding: 10px 0;
-        border-bottom: 1px solid #21262d;
-    }
-    .cert-id {
-        color: #58a6ff;
-        font-family: monospace;
-        font-size: 0.85rem;
-    }
-    
     /* Responsive Styles */
     @media (max-width: 1024px) {
+        /* Tablet styles */
         .profile {
             width: 200px;
             height: 200px;
         }
+        
         .flex {
             gap: 20px;
         }
+        
         .intro-text h2 {
             font-size: 1.5rem;
         }
+        
         .intro-text p {
             font-size: 1rem;
         }
+        
         .section-title {
             font-size: 1.7rem;
         }
+        
         .about-text {
             font-size: 1rem;
         }
+        
         .slide {
             width: 350px;
             height: 220px;
@@ -291,45 +247,57 @@
     }
     
     @media (max-width: 768px) {
+        /* Mobile and small tablet styles */
         header {
             padding: 10px 15px;
         }
+        
         .flex {
             flex-direction: column;
             gap: 15px;
         }
+        
         .profile {
             width: 180px;
             height: 180px;
         }
+        
         .intro-text h2 {
             font-size: 1.4rem;
             text-align: center;
         }
+        
         .intro-text p {
             text-align: center;
             font-size: 0.95rem;
         }
+        
         .section-title {
             font-size: 1.5rem;
             display: block;
             text-align: center;
             margin-bottom: 20px;
         }
+        
         .about-container {
             flex-direction: column;
         }
+        
         .about-text {
             font-size: 0.95rem;
         }
+        
         .about-images {
             grid-template-columns: 1fr;
             margin-top: 20px;
         }
+        
         .slide {
             width: 300px;
             height: 200px;
         }
+        
+        /* Navigation for mobile */
         #navbar {
             flex-direction: column;
             position: absolute;
@@ -340,28 +308,44 @@
             display: none;
             padding: 15px 0;
         }
+        
         #navbar a {
             margin: 10px 0;
             text-align: center;
             font-size: 1rem;
         }
+        
         #menu-icon {
             display: block;
         }
+        
+        /* Experience boxes */
         .experience-box {
             padding: 15px;
         }
+        
+        /* Education boxes */
         .education-box {
             flex-direction: column;
             gap: 15px;
             text-align: center;
         }
+        
         .education-box > div {
             flex: 1 1 100%;
         }
-        .research-grid {
-            flex-direction: column;
+        
+        /* Skills section */
+        #skills {
+            padding: 20px 10px;
         }
+        
+        #skills > div {
+            width: 150px;
+            padding: 15px;
+        }
+        
+        /* Footer */
         footer > div {
             min-width: 100%;
             margin-bottom: 20px;
@@ -369,20 +353,55 @@
     }
     
     @media (max-width: 480px) {
+        /* Small mobile devices */
         .profile {
             width: 150px;
             height: 150px;
         }
+        
         .intro-text h2 {
             font-size: 1.3rem;
         }
+        
         .section-title {
             font-size: 1.3rem;
         }
+        
         .slide {
             width: 250px;
             height: 180px;
         }
+        
+        /* Skills section */
+        #skills > div {
+            width: 130px;
+            padding: 12px;
+        }
+        
+        #skills > div i {
+            font-size: 28px;
+        }
+        
+        #skills > div span {
+            font-size: 12px;
+        }
+        .project-btn{
+    display:inline-block;
+    padding:10px 22px;
+    margin-right:10px;
+    margin-top:10px;
+    background:#58a6ff;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    transition:.3s;
+    font-weight:600;
+}
+
+.project-btn:hover{
+    background:#1f6feb;
+    transform:translateY(-2px);
+}
     }
 </style>
 </head>
@@ -391,19 +410,24 @@
 <header>
   <h1>S. M MEHEDI HASAN</h1>
 
+  <!-- Menu Toggle -->
   <input type="checkbox" id="menu-toggle">
   <label for="menu-toggle" id="menu-icon">&#9776;</label>
 
-  <nav id="navbar">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#research">Research</a>
-      <a href="#skills">Skills</a>
-      <a href="#certificates">Certifications</a>
-      <a href="#contact">Contact</a>
-  </nav>
+  <!-- Navigation -->
+<nav id="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#skills">Skills</a>
+    
+    <a href="#contact">Contact</a>
+</nav>
 </header>
 
 <script>
@@ -441,20 +465,21 @@
 })();
 </script>
 
-<!-- HOME Section -->
+
 <section id="home">
   <div class="box flex">
-    <img src="./images/IMG_20231014_124927.jpg" alt="Profile" class="profile" onerror="this.src='https://via.placeholder.com/250x250?text=Mehedi'">
+    <img src="./images/IMG_20231014_124927.jpg" alt="Profile" class="profile">
     <div class="intro-text">
       <h2>Hi, I'm <span class="highlight">S. M Mehedi Hasan</span></h2>
-      <p>Final-year <span class="highlight">Computer Science</span> student at 
+      <p>Third-year <span class="highlight">Computer Science</span> student at 
         <strong>American International University-Bangladesh</strong> with a deep passion for 
         <span class="highlight">technology</span>, innovation, and problem-solving.  
         Skilled in crafting <span class="highlight">modern, responsive applications</span> and eager to take on 
         challenges that make a meaningful difference. Always exploring new tools, frameworks, and 
         ideas to create solutions that are not only functional but inspiring.</p>
       
-      <div style="margin-top:20px;">
+      <!-- Download CV Button -->
+      <div style=" margin-top:20px;">
         <a href="./files/SM_Mehedi_Hasan_CV.pdf" download 
            style="display:inline-block;padding:14px 32px;
                   background:linear-gradient(135deg,#4e73df,#1cc88a);
@@ -469,7 +494,23 @@
   </div>
 </section>
 
-<!-- ABOUT Section -->
+<script>
+  // Add hover animation effect
+  document.querySelectorAll('a[download]').forEach(btn => {
+    btn.addEventListener("mouseover", () => {
+      btn.style.transform = "translateY(-3px) scale(1.05)";
+      btn.style.boxShadow = "0 10px 20px rgba(0,0,0,0.25)";
+    });
+    btn.addEventListener("mouseout", () => {
+      btn.style.transform = "translateY(0) scale(1)";
+      btn.style.boxShadow = "0 6px 15px rgba(0,0,0,0.2)";
+    });
+  });
+</script>
+
+
+
+
 <section id="about">
     <div class="box about-container">
         <div class="about-text">
@@ -486,182 +527,641 @@
                 Quickly adapting, tech-savvy, and eager to contribute to a structured academic environment with 
                 professionalism and a <span class="highlight">can-do attitude</span>.
             </p>
+            <div class="about-video" style="flex:1 1 400px;min-width:280px;display:flex;justify-content:center;">
+
+  </div>
         </div>
       <div class="slider">
-        <div class="slide-track">
-            <img src="./images/certificate.jpg" alt="Addressing audience" class="slide" onerror="this.style.display='none'">
-            <img src="./images/jetto.jpg" alt="Event" class="slide" onerror="this.style.display='none'">
-            <img src="./images/presenattion.jpg" alt="Presentation" class="slide" onerror="this.style.display='none'">
-            <img src="./images/addresss.jpg" alt="Addressing audience" class="slide" onerror="this.style.display='none'">
-            <img src="./images/online_event.jpg" alt="Event" class="slide" onerror="this.style.display='none'">
-        </div>
-      </div>
+    <div class="slide-track">
+        <img src="./images/certificate.jpg" alt="Addressing audience" class="slide">
+        <img src="./images/jetto.jpg" alt="Event" class="slide">
+        <img src="./images/presenattion.jpg" alt="Presentation" class="slide">
+        <img src="./images/addresss.jpg" alt="Addressing audience" class="slide">
+        <img src="./images/online_event.jpg" alt="Event" class="slide">
+    </div>
+</div>
+
     </div>
 </section>
 
-<!-- EXPERIENCE Section -->
+
 <section id="experience">
     <h1 class="section-title">Experience</h1>
     <hr>
     <div class="box experience-box">
+    <a href="https://www.ictolympiadbangladesh.com/" target="_blank" style="text-decoration:none;">
         <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-            <img src="./images/ict.jpg" alt="ICT Olympiad" style="width:200px; height:auto; object-fit:contain; display:block;" onerror="this.style.display='none'">
-        </div>
-        <h3 style="color:#58a6ff; text-align:center; margin-bottom:5px;">Campus Ambassador S2 - ICT Olympiad Bangladesh</h3>
-        <p style="color:#8b949e; text-align:center; font-style:italic; margin-top:0;">Oct 2024 – May 2025</p>
-        <div style="color:#c9d1d9; line-height:1.6; padding-left:10px;">
-            <p>Greeted and communicated with students, teachers, and organizers during events, ensuring a smooth campus outreach experience. Responded to inquiries and promoted programs, helping students and participants understand registration procedures and event schedules. Maintained accurate records and collaborated with the central team to ensure proper coordination and smooth execution of all activities.</p>
-        </div>
-    </div>
+    <img src="./images/ict.jpg" alt="ICT Olympiad" 
+         style="width:200px; height:auto; object-fit:contain; display:block;">
+</div>
 
-    <div class="box experience-box">
+    </a>
+    <h3 style="color:#58a6ff; text-align:center; margin-bottom:5px;">
+        <a href="https://www.ictolympiadbangladesh.com/" target="_blank" style="color:#58a6ff; text-decoration:none;">Campus Ambassador S2 - ICT Olympiad Bangladesh</a>
+    </h3>
+    <p style="color:#8b949e; text-align:center; font-style:italic; margin-top:0;">Oct 2024 – May 2025</p>
+    <div style="color:#c9d1d9; line-height:1.6; padding-left:10px;">
+    <p>Greeted and communicated with students, teachers, and organizers during events, ensuring a smooth campus outreach experience.
+    Responded to inquiries and promoted programs, helping students and participants understand registration procedures and event schedules.
+    Maintained accurate records and collaborated with the central team to ensure proper coordination and smooth execution of all activities.</p>
+</div>
+
+</div>
+
+
+   <div class="box experience-box">
+    <a href="https://www.youtube.com/@TriangleTech71" target="_blank" style="text-decoration:none;">
         <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-            <img src="./images/traYoutube_logo.png" alt="Youtube" style="width:200px; height:auto; object-fit:contain; display:block;" onerror="this.style.display='none'">
-        </div>
-        <h3 style="color:#58a6ff; text-align:center; margin-bottom:5px;">Content Creator – YouTube (@TriangleTech71)</h3>
-        <p style="color:#8b949e; text-align:center; font-style:italic; margin-top:0;">Nov 2023 – Present</p>
-        <div style="color:#c9d1d9; line-height:1.6; padding-left:10px;">
-            <p>Created and managed educational programming content, focusing on computer science concepts and software tutorials. Designed engaging thumbnails and titles to improve visibility and audience retention. Shared tutorials and study strategies while actively engaging with the audience to build a learning community.</p>
-        </div>
+    <img src="./images/traYoutube_logo.png" alt="Youtube" 
+         style="width:200px; height:auto; object-fit:contain; display:block;">
+</div>
+
+    </a>
+    <h3 style="color:#58a6ff; text-align:center; margin-bottom:5px;">
+        <a href="https://www.youtube.com/@TriangleTech71" target="_blank" style="color:#58a6ff; text-decoration:none;">
+            Content Creator – YouTube (@TriangleTech71)
+        </a>
+    </h3>
+    <p style="color:#8b949e; text-align:center; font-style:italic; margin-top:0;">Nov 2023 – Present</p>
+    <div style="color:#c9d1d9; line-height:1.6; padding-left:10px;">
+        <p>Created and managed educational programming content, focusing on computer science concepts and software tutorials.
+        Designed engaging thumbnails and titles to improve visibility and audience retention.
+        Shared tutorials and study strategies while actively engaging with the audience to build a learning community.</p>
     </div>
+</div>
+
 </section>
 
-<!-- EDUCATION Section -->
 <section id="education">
     <h1 class="section-title">Education</h1>
     <hr>
-    <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-        <img src="./images/aiub-logo.png" alt="aiub" style="width:200px; height:auto; object-fit:contain; display:block;" onerror="this.style.display='none'">
-    </div>
-    <div style="color:#c9d1d9; line-height:1.6; text-align:center; margin-bottom:20px;">
-        <h4 style="color:#58a6ff;">BSc, Computer Science and Engineering</h4>
-        <p><strong>American International University-Bangladesh (AIUB), Dhaka</strong></p>
-        <p style="color:#8b949e;">2022 – Present | CGPA: 3.70/4.00</p>
-    </div>
-    <hr>
-    <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-        <img src="./images/gssc.jpg" alt="gssc" style="width:200px; height:auto; object-fit:contain; display:block;" onerror="this.style.display='none'">
-    </div>
-    <div style="color:#c9d1d9; line-height:1.6; text-align:center; margin-bottom:20px;">
-        <h4 style="color:#58a6ff;">Higher Secondary Certificate (HSC)</h4>
-        <p><strong>Govt. Shah Sultan College, Bogura</strong></p>
-        <p style="color:#8b949e;">Result: 5.0/5.0</p>
-    </div>
-    <hr>
-    <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-        <img src="./images/plsc.png" alt="plsc" style="width:200px; height:auto; object-fit:contain; display:block;" onerror="this.style.display='none'">
-    </div>
-    <div style="color:#c9d1d9; line-height:1.6; text-align:center;">
-        <h4 style="color:#58a6ff;">Secondary School Certificate (SSC)</h4>
-        <p><strong>Police Lines School and College, Bogura</strong></p>
-        <p style="color:#8b949e;">Result: 5.0/5.0</p>
-    </div>
-</section>
 
-<!-- RESEARCH Section - NEW with two subsections -->
-<section id="research">
-    <h1 class="section-title">Research & Publications</h1>
-    <hr>
-    <div class="research-grid">
-        <!-- Published Papers Subsection -->
-        <div class="research-sub">
-            <h3>📄 Published Papers</h3>
-            <div class="paper-item">
-                <strong>Benefits of NLP Tools for Speaking Development of Second Language Learners</strong>
-                <div>8th IEOM Bangladesh Conference, Dhaka, December 20-21, 2025</div>
-                <div class="ieom-detail">Publisher: IEOM Society International | ISBN: 979-8-3507-4441-5 | ISSN: 2169-8767</div>
-                <div class="ieom-detail">DOI: <a href="https://doi.org/10.46254/BA08.20250371" target="_blank" style="color:#58a6ff">10.46254/BA08.20250371</a></div>
-                <span class="status-badge">🏆 Best Track Paper Award</span>
-            </div>
-            <div class="paper-item">
-                <strong>AgriX: Design and Feasibility of an AI-Integrated Platform for Smart Agriculture in Bangladesh</strong>
-                <div>4th International Conference on Computing Advancements (ICCA 2026), AIUB</div>
-                <div class="ieom-detail">Conference: October 15-16, 2026 (ACM Sponsored) - Accepted</div>
-            </div>
+    
+    <!-- AIUB -->
+   <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
+    <img src="./images/aiub-logo.png" alt="aiub" 
+         style="width:200px; height:auto; object-fit:contain; display:block;">
+</div>
+
+
         </div>
-        
-        <!-- Working in Progress Subsection -->
-        <div class="research-sub">
-            <h3>⚙️ Working in Progress</h3>
-            <div class="paper-item">
-                <strong>Impact of GenAI on Critical Thinking in University Students</strong>
-                <div>2nd IEEE International Conference on Quantum Photonics, AI & Networking (2026)</div>
-                <span class="status-badge">📝 Under revision</span>
-            </div>
-            <div class="paper-item">
-                <strong>RenalVision: Ensemble Deep Learning for Kidney CT Analysis</strong>
-                <div>Extending transfer learning with explainable AI</div>
-                <span class="status-badge">🔬 Data collection & validation</span>
-            </div>
-            <div class="paper-item">
-                <strong>Prompt Engineering for Domain-Specific LLMs in Agriculture</strong>
-                <div>Fine-tuning and evaluation metrics development</div>
-                <span class="status-badge">⚡ Ongoing research</span>
-            </div>
+        <!-- Description -->
+        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
+            <h4 style="color:#58a6ff; margin-bottom:5px;">BSc, Computer Science and Engineering</h4>
+            <p style="margin:2px 0;"><strong>American International University-Bangladesh (AIUB), Dhaka</strong> - 
+            <a href="https://www.aiub.edu" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
+            <p style="color:#8b949e; margin:2px 0;">2022 – Present | CGPA: 3.71</p>
+            <p>The Bachelor of Science in Computer Science and Engineering at AIUB equips students with a strong foundation in software development, 
+                data structures, algorithms, and emerging technologies. Emphasis is placed on hands-on projects, teamwork, and developing problem-solving skills, 
+                preparing graduates for both industry and research opportunities. Coursework includes programming, databases, networks, and AI.</p>
         </div>
+        <hr>
     </div>
-</section>
 
-<!-- SKILLS Section -->
-<section id="skills">
-    <h1 class="section-title">Skills</h1>
-    <hr>
-    <div style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;padding:20px;">
-        <div style="width:160px;padding:15px;background:#fff;border-radius:12px;text-align:center;"><i class="fas fa-code" style="font-size:28px;color:#4e73df;"></i><br><span style="color:#333;">C++/Java/Python</span></div>
-        <div style="width:160px;padding:15px;background:#fff;border-radius:12px;text-align:center;"><i class="fas fa-brain" style="font-size:28px;color:#4e73df;"></i><br><span style="color:#333;">ML/AI (PyTorch)</span></div>
-        <div style="width:160px;padding:15px;background:#fff;border-radius:12px;text-align:center;"><i class="fas fa-database" style="font-size:28px;color:#4e73df;"></i><br><span style="color:#333;">SQL (MSSQL/Oracle)</span></div>
-        <div style="width:160px;padding:15px;background:#fff;border-radius:12px;text-align:center;"><i class="fab fa-js" style="font-size:28px;color:#4e73df;"></i><br><span style="color:#333;">JavaScript/REST APIs</span></div>
-        <div style="width:160px;padding:15px;background:#fff;border-radius:12px;text-align:center;"><i class="fas fa-microchip" style="font-size:28px;color:#4e73df;"></i><br><span style="color:#333;">IoT/Arduino</span></div>
-        <div style="width:160px;padding:15px;background:#fff;border-radius:12px;text-align:center;"><i class="fab fa-git-alt" style="font-size:28px;color:#4e73df;"></i><br><span style="color:#333;">Git/GitHub</span></div>
+    <!-- HSC -->
+    <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
+    <img src="./images/gssc.jpg" alt="gssc" 
+         style="width:200px; height:auto; object-fit:contain; display:block;">
+</div>
+
+        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
+            <h4 style="color:#58a6ff; margin-bottom:5px;">Higher Secondary Certificate (HSC)</h4>
+            <p style="margin:2px 0;"><strong>Govt. Shah Sultan College, Bogura - 5800</strong></p>
+            <a href="https://govssc.edu.bd/" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
+            <p style="color:#8b949e; margin:2px 0;">Result: 5.0/5.0</p>
+            <p>The Higher Secondary Certificate program at Govt. Shah Sultan College provided a solid academic foundation in science and mathematics, 
+            developing critical thinking, analytical skills, and a strong work ethic that prepared me for undergraduate studies in Computer Science.</p>
+        </div>
+        <hr>
     </div>
-</section>
 
-<!-- CERTIFICATIONS Section - updated with verifiable IDs -->
-<section id="certificates">
-    <h1 class="section-title">Certifications</h1>
-    <hr>
+    <!-- SSC -->
+   <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
+    <img src="./images/plsc.png" alt="plsc" 
+         style="width:200px; height:auto; object-fit:contain; display:block;">
+</div>
+
+        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
+            <h4 style="color:#58a6ff; margin-bottom:5px;">Secondary School Certificate (SSC)</h4>
+            <p style="margin:2px 0;"><strong>Police Lines School and College, Bogura - 5800</strong></p>
+            <a href="https://plscb.edu.bd/" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
+            <p style="color:#8b949e; margin:2px 0;">Result: 5.0/5.0</p>
+            <p>The Secondary School Certificate curriculum emphasized fundamental science, mathematics, and critical reasoning, fostering a disciplined and curious mindset 
+            that laid the groundwork for future studies in Computer Science.</p>
+        </div>
+        <hr>
+    </div>
+
+</section>
+    ```html
+<section id="projects">
+
+    <h1 class="section-title">Projects</h1>
+
     <div class="box">
-        <div class="cert-item"><strong>🐍 Python (Basic)</strong> – HackerRank (Feb 2025) | <span class="cert-id">ID: 8ebc476a1e15</span> <span style="color:#238636;">✓ Verifiable</span></div>
-        <div class="cert-item"><strong>💻 Windows Command Line Basics</strong> – Udemy (May 2023) | <span class="cert-id">ID: UC-e24f421d-e7c7-4203-8b15-c3d7e5e28f8d</span></div>
-        <div class="cert-item"><strong>⚙️ Foundational C# with Microsoft</strong> – freeCodeCamp (Aug 2024) | <span class="cert-id">ID: fcc15cbe461-4e47-44c1-8ad9-8bea51a36446-fcswm</span></div>
-        <div class="cert-item"><strong>🤖 Prompt Engineering</strong> – Programming Hero (Jun 2024) | <span class="cert-id">ID: PH46360</span></div>
-        <div class="cert-item"><strong>🎓 Career Development Program</strong> – AIUB (Jan 2026) | <span class="cert-id">Certificate No: CDP-268704</span></div>
+
+        <!-- Project 1 -->
+
+        <div style="margin-bottom:35px;">
+
+            <h2 style="color:#58a6ff;">
+                🏥 DocMateV3 – Healthcare Management System
+            </h2>
+
+            <p>
+                <strong>Tech Stack:</strong>
+                PHP, MySQL, JavaScript, MVC Architecture
+            </p>
+
+            <ul>
+
+                <li>Designed and developed a full-stack healthcare management platform with Admin, Doctor, and Patient roles.</li>
+
+                <li>Implemented secure session-based authentication and role-based dashboards.</li>
+
+                <li>Built appointment booking, doctor availability management, medicine CRUD operations, and patient management modules.</li>
+
+                <li>Integrated AJAX for real-time updates without page reload.</li>
+
+                <li>Designed a normalized relational database with complex one-to-many and one-to-one relationships.</li>
+
+            </ul>
+
+            <div style="margin-top:15px;">
+                <a href="#" class="project-btn">GitHub</a>
+                <a href="#" class="project-btn">Live Demo</a>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Project 2 -->
+
+        <div style="margin:35px 0;">
+
+            <h2 style="color:#58a6ff;">
+                🐶 Peddy – Interactive Pet Adoption Platform
+            </h2>
+
+            <p>
+                <strong>Tech Stack:</strong>
+                JavaScript, REST API, Tailwind CSS, DaisyUI
+            </p>
+
+            <ul>
+
+                <li>Developed a responsive pet adoption platform supporting over 100+ dynamic listings.</li>
+
+                <li>Integrated REST APIs for real-time filtering, searching, and sorting.</li>
+
+                <li>Implemented asynchronous data loading and interactive adoption workflow.</li>
+
+                <li>Created animated adoption confirmation modal using modern JavaScript DOM manipulation.</li>
+
+                <li>Optimized the interface for mobile, tablet, and desktop devices.</li>
+
+            </ul>
+
+            <div style="margin-top:15px;">
+                <a href="#" class="project-btn">GitHub</a>
+                <a href="#" class="project-btn">Live Demo</a>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Project 3 -->
+
+        <div style="margin-top:35px;">
+
+            <h2 style="color:#58a6ff;">
+                🩺 RenalVision – Kidney CT Diagnosis Bot
+            </h2>
+
+            <p>
+                <strong>Tech Stack:</strong>
+                PyTorch, Deep Learning, Computer Vision, Scikit-learn, OpenCV, XGBoost, Telegram Bot
+            </p>
+
+            <ul>
+
+                <li>Built an ensemble deep learning framework for kidney CT scan classification.</li>
+
+                <li>Applied transfer learning using EfficientNet and ResNet architectures.</li>
+
+                <li>Performed preprocessing, feature extraction, and SMOTE-based class balancing.</li>
+
+                <li>Combined SVM, Random Forest, and XGBoost through ensemble voting for improved accuracy.</li>
+
+                <li>Developed an interactive Telegram bot capable of real-time diagnosis with confidence scores.</li>
+
+            </ul>
+
+            <div style="margin-top:15px;">
+                <a href="#" class="project-btn">GitHub</a>
+                <a href="#" class="project-btn">Research</a>
+            </div>
+
+        </div>
+
     </div>
+
 </section>
+```
 
-<!-- CONTACT / FOOTER -->
-<footer id="contact">
-    <div>
-        <h3>S. M Mehedi Hasan</h3>
-        <p>Dhaka, Bangladesh | +8801600334597 | smmehedihasan335@gmail.com</p>
-        <p>
-            <a href="https://linkedin.com/in/sm-mehedihasan25" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/sm-mehedi" target="_blank">GitHub</a> |
-            <a href="sm-mehedi.github.io/Portfolio/" target="_blank">Portfolio</a>
-        </p>
-    </div>
-    <div>
-        <h4>References</h4>
-        <p><strong>Anik Kumar Saha</strong><br>Lecturer, Dept. of Computer Science, AIUB<br>anik.kumar@aiub.edu</p>
-        <p><strong>Iftekhar Mahmud</strong><br>Lecturer, Dept. of English, AIUB<br>iftekhar@aiub.edu</p>
-    </div>
-</footer>
 
-<!-- Font Awesome for icons -->
+<br>
+<h1 style="text-align:center;">Skills</h1>
+
+<!-- Font Awesome (place in <head> or before this section) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+<section id="skills" style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;padding:30px;">
+
+
+      <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-code" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">C#</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fab fa-python" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Python</span>
+  </div>
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-magic" style="font-size:32px;margin-bottom:12px;color:#e83e8c;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Prompting</span>
+</div>
+
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-database" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">SQL</span>
+  </div>
+  
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fab fa-microsoft" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Microsoft Office</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-comments" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Professional Communication</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-users" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Team Coordination</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-bullhorn" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Event & Campaign Support</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-user-graduate" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Student Outreach</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-tasks" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Administrative Tasks</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-chalkboard" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Presentation Prep</span>
+  </div>
+
+  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
+    <i class="fas fa-bolt" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
+    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Quick Learner</span>
+  </div>
+<section id="research">
+
+<h1 class="section-title">Research</h1>
+
+<div class="box">
+
+<h2 style="color:#58a6ff;">Published Research</h2>
+
+<div class="research-card">
+
+<h3>
+Benefits of NLP Tools for Speaking Development of Second Language Learners
+</h3>
+
+<p>
+Presented and Published in the
+<b>8th IEOM Bangladesh International Conference on Industrial Engineering and Operations Management</b>,
+Dhaka, Bangladesh.
+</p>
+
+<ul>
+
+<li><b>Publisher:</b> IEOM Society International</li>
+
+<li><b>Conference Date:</b> December 20–21, 2025</li>
+
+<li><b>ISBN:</b> 979-8-3507-4441-5</li>
+
+<li><b>ISSN:</b> 2169-8767</li>
+
+<li><b>DOI:</b>
+<a href="https://doi.org/10.46254/BA08.20250371" target="_blank">
+10.46254/BA08.20250371
+</a>
+</li>
+
+<li><b>Award:</b> Best Track Paper Award</li>
+
+</ul>
+
+</div>
+
+<hr>
+
+<h2 style="color:#58a6ff;">Research In Progress</h2>
+
+<div class="research-card">
+
+<h3>Impact of GenAI on Critical Thinking in University Students</h3>
+
+<p>
+
+<b>Conference:</b>
+
+2nd IEEE International Conference on Quantum Photonics, Artificial Intelligence & Networking
+
+</p>
+
+<p>Status: <span style="color:orange;">Under Revision</span></p>
+
+</div>
+
+<div class="research-card">
+
+<h3>AgriX: Design and Feasibility of an AI-Integrated Platform for Smart Agriculture in Bangladesh</h3>
+
+<p>
+
+<b>Conference:</b>
+
+4th International Conference on Computing Advancements (ICCA 2026)
+
+</p>
+
+<p>
+
+Conference Date: October 15–16, 2026
+
+</p>
+
+<p>
+
+Status:
+<span style="color:lightgreen;">Submitted</span>
+
+</p>
+
+<p>
+
+ACM Sponsored
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+    <section id="achievements">
+
+<h1 class="section-title">
+Awards & Achievements
+</h1>
+
+<div class="box">
+
+<ul>
+
+<li>
+
+🏆 <b>Best Track Paper Award</b>
+
+<br>
+
+8th IEOM Bangladesh International Conference
+
+<br>
+
+Engineering Education and Curriculum Improvement Track
+
+</li>
+
+<br>
+
+<li>
+
+🏅 Campus Ambassador
+
+ICT Olympiad Bangladesh Season 2
+
+Certificate of Appreciation
+
+</li>
+
+<br>
+
+<li>
+
+📝 Technical Paper Reviewer
+
+IEOM Society International
+
+Reviewed 3 Technical Papers
+
+</li>
+
+<br>
+
+<li>
+
+🎓 Career Development Program
+
+American International University-Bangladesh
+
+Certificate No: CDP-268704
+
+</li>
+
+</ul>
+
+</div>
+
+</section>
+    
+  
+
+
+
+
+<section id="certifications">
+
+<h1 class="section-title">
+
+Professional Certifications
+
+</h1>
+
+<div class="box">
+
+<table>
+
+<tr>
+
+<th>Certificate</th>
+
+<th>Provider</th>
+
+<th>Verification ID</th>
+
+</tr>
+
+<tr>
+
+<td>Python (Basic)</td>
+
+<td>HackerRank</td>
+
+<td>8ebc476a1e15</td>
+
+</tr>
+
+<tr>
+
+<td>Windows Command Line Basics</td>
+
+<td>Udemy</td>
+
+<td>UC-e24f421d-e7c7-4203-8b15-c3d7e5e28f8d</td>
+
+</tr>
+
+<tr>
+
+<td>Foundational C# with Microsoft</td>
+
+<td>freeCodeCamp</td>
+
+<td>fcc15cbe461-4e47-44c1-8ad9-8bea51a36446-fcswm</td>
+
+</tr>
+
+<tr>
+
+<td>Prompt Engineering</td>
+
+<td>Programming Hero</td>
+
+<td>PH46360</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<p style="color:#8b949e;text-align:center;">
+
+All certificates include their official verification IDs and are verifiable through their respective issuing platforms.
+
+</p>
+
+</div>
+
+</section>
+
 <script>
-    document.querySelectorAll('a[download]').forEach(btn => {
-        btn.addEventListener("mouseover", () => {
-            btn.style.transform = "translateY(-3px) scale(1.05)";
-            btn.style.boxShadow = "0 10px 20px rgba(0,0,0,0.25)";
-        });
-        btn.addEventListener("mouseout", () => {
-            btn.style.transform = "translateY(0) scale(1)";
-            btn.style.boxShadow = "0 6px 15px rgba(0,0,0,0.2)";
-        });
-    });
+  let currentSlide = 0;
+  function moveSlide(direction) {
+    const slider = document.getElementById("cert-slider");
+    const totalSlides = slider.children.length;
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  // Auto-slide every 5 seconds
+  setInterval(() => {
+    moveSlide(1);
+  }, 5000);
 </script>
+
+<br>
+
+
+<footer id="contact" style="background:#161b22; padding:40px 20px; color:#c9d1d9; display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; border-top:2px solid #58a6ff; box-shadow:0 -5px 20px rgba(88,166,255,0.2);">
+
+  <!-- About / Logo -->
+  <div style="flex:1; min-width:250px;">
+    <h2 style="color:#58a6ff; margin-bottom:10px;">S. M Mehedi Hasan</h2>
+    <p>Computer Science Student | Researcher | Tech Enthusiast</p>
+    <p>Always exploring innovative solutions and creating impactful projects.</p>
+  </div>
+
+  <!-- Contact -->
+  <div style="min-width:200px;">
+    <h3 style="color:#58a6ff; margin-bottom:10px;">Contact Me</h3>
+    <a href="mailto:hasanmehedi63395@gmail.com" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;"> 
+      <img src="./images/gmail-logo-on-transparent-white-background-free-vector.jpg" alt="Gmail" style="width:25px; height:25px;"> Gmail 
+    </a>
+    <a href="https://facebook.com" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
+      <img src="./images/fac.jpg" alt="Facebook" style="width:25px; height:25px;"> Facebook
+    </a>
+    <a href="https://www.linkedin.com/in/sm-mehedihasan25/" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
+      <img src="./images/LinkedIn_logo_initials.png" alt="LinkedIn" style="width:25px; height:25px;"> LinkedIn
+    </a>
+    <a href="https://github.com/sm-mehedi" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
+  <img src="./images/git.png" alt="GitHub" style="width:25px; height:25px;"> GitHub
+</a>
+
+  </div>
+
+  <!-- Address -->
+  <div style="flex:1; min-width:250px;">
+    <h3 style="color:#58a6ff; margin-bottom:10px;">Address</h3>
+    <p>Kuratoli, Dhaka, Bangladesh</p>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.384132915767!2d90.4217865!3d23.8209686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c6489f1f33bf%3A0x8cf48cff0b79ee99!2sKuratolii%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1692100000000!5m2!1sen!2sbd" 
+      width="100%" height="150" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+</footer>
+
+<style>
+  footer a:hover {
+    color:#58a6ff;
+    transform: translateY(-3px);
+  }
+  footer iframe {
+    box-shadow: 0 0 10px rgba(88,166,255,0.3);
+  }
+  
+  @media (max-width: 768px) {
+    footer > div {
+      min-width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    footer {
+      padding: 30px 15px;
+    }
+  }
+</style>
 
 </body>
 </html>
