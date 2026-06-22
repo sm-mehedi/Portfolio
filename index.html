@@ -1,815 +1,307 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SM MEHEDI HASAN</title>
+
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #0d1117;
-        color: #c9d1d9;
-        line-height: 1.6;
-    }
-    header {
-        background-color: #161b22;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-    }
-    header h1 {
-        font-size: 1.2rem;
-        color: #fff;
-        margin: 0;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
-    nav {
-        display: flex;
-    }
-    nav a {
-        color: #ccd6f6;
-        margin-left: 15px;
-        text-decoration: none;
-        font-size: 0.95rem;
-    }
-    nav a:hover {
-        color: #58a6ff;
-    }
-    section {
-        max-width: 1000px;
-        margin: auto;
-        padding: 20px;
-    }
-    .box {
-        background: #161b22;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-    }
-    img.profile {
-        border-radius: 50%;
-        width: 250px;
-        height: 250px;
-        object-fit: cover;
-        flex-shrink: 0;
-        border: 4px solid #58a6ff;
-        box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
-    }
-
-    .intro-text h2 {
-        margin-top: 0;
-        font-size: 1.8rem;
-        color: #fff;
-    }
-
-    .intro-text p {
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: #c9d1d9;
-    }
-
-    .highlight {
-        color: #58a6ff;
-        font-weight: bold;
-    }
-
-    .flex {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 30px;
-    }
-
-    .flex p {
-        flex: 1;
-        font-size: 1.1rem;
-    }
-
-    .flex img {
-        flex-shrink: 0;
-    }
-    .about-images {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
-    }
-    .about-images img {
-        max-width: 32%;
-        border-radius: 6px;
-    }
-    .experience-box {
-        margin-bottom: 15px;
-    }
-    .experience-logo {
-        max-height: 40px;
-        display: block;
-        margin-bottom: 10px;
-    }
-    .education-box {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .education-box img {
-        max-height: 50px;
-        display: block;
-        margin: auto;
-    }
-    ul {
-        padding-left: 20px;
-    }
-    footer {
-        text-align: center;
-        padding: 15px;
-        background: #161b22;
-    }
-    footer a {
-        color: #58a6ff;
-        margin: 0 10px;
-        text-decoration: none;
-    }
-    .section-title {
-        font-size: 2rem;
-        color: #58a6ff;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #58a6ff;
-        display: inline-block;
-        padding-bottom: 5px;
-    }
-
-    .about-container {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        align-items: flex-start;
-    }
-
-    .about-text {
-        flex: 1 1 55%;
-        font-size: 1.05rem;
-        line-height: 1.8;
-    }
-
-    .about-images {
-        flex: 1 1 40%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-
-    .about-images img {
-        width: 100%;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .slider {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .slide-track {
-        display: flex;
-        animation: slide 15s linear infinite;
-    }
-
-    .slide {
-        width: 400px;
-        height: 250px;
-        object-fit: cover;
-        flex-shrink: 0;
-    }
-
-    /* Animation */
-    @keyframes slide {
-        0%   { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-    }
-
-    .about-images img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(88, 166, 255, 0.6);
-    }
-    
-    /* Menu Toggle Styles */
-    #menu-toggle {
-        display: none;
-    }
-    
-    #menu-icon {
-        font-size: 26px;
-        cursor: pointer;
-        display: none;
-        color: #fff;
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 1024px) {
-        /* Tablet styles */
-        .profile {
-            width: 200px;
-            height: 200px;
-        }
-        
-        .flex {
-            gap: 20px;
-        }
-        
-        .intro-text h2 {
-            font-size: 1.5rem;
-        }
-        
-        .intro-text p {
-            font-size: 1rem;
-        }
-        
-        .section-title {
-            font-size: 1.7rem;
-        }
-        
-        .about-text {
-            font-size: 1rem;
-        }
-        
-        .slide {
-            width: 350px;
-            height: 220px;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        /* Mobile and small tablet styles */
-        header {
-            padding: 10px 15px;
-        }
-        
-        .flex {
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .profile {
-            width: 180px;
-            height: 180px;
-        }
-        
-        .intro-text h2 {
-            font-size: 1.4rem;
-            text-align: center;
-        }
-        
-        .intro-text p {
-            text-align: center;
-            font-size: 0.95rem;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            display: block;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .about-container {
-            flex-direction: column;
-        }
-        
-        .about-text {
-            font-size: 0.95rem;
-        }
-        
-        .about-images {
-            grid-template-columns: 1fr;
-            margin-top: 20px;
-        }
-        
-        .slide {
-            width: 300px;
-            height: 200px;
-        }
-        
-        /* Navigation for mobile */
-        #navbar {
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            background: #0A192F;
-            width: 100%;
-            display: none;
-            padding: 15px 0;
-        }
-        
-        #navbar a {
-            margin: 10px 0;
-            text-align: center;
-            font-size: 1rem;
-        }
-        
-        #menu-icon {
-            display: block;
-        }
-        
-        /* Experience boxes */
-        .experience-box {
-            padding: 15px;
-        }
-        
-        /* Education boxes */
-        .education-box {
-            flex-direction: column;
-            gap: 15px;
-            text-align: center;
-        }
-        
-        .education-box > div {
-            flex: 1 1 100%;
-        }
-        
-        /* Skills section */
-        #skills {
-            padding: 20px 10px;
-        }
-        
-        #skills > div {
-            width: 150px;
-            padding: 15px;
-        }
-        
-        /* Footer */
-        footer > div {
-            min-width: 100%;
-            margin-bottom: 20px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        /* Small mobile devices */
-        .profile {
-            width: 150px;
-            height: 150px;
-        }
-        
-        .intro-text h2 {
-            font-size: 1.3rem;
-        }
-        
-        .section-title {
-            font-size: 1.3rem;
-        }
-        
-        .slide {
-            width: 250px;
-            height: 180px;
-        }
-        
-        /* Skills section */
-        #skills > div {
-            width: 130px;
-            padding: 12px;
-        }
-        
-        #skills > div i {
-            font-size: 28px;
-        }
-        
-        #skills > div span {
-            font-size: 12px;
-        }
-    }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);background:#0d1117;color:#c9d1d9;line-height:1.6;}
+a{color:#58a6ff;text-decoration:none;}
+a:hover{color:#79b8ff;}
+.site-header{background:#161b22;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;border-bottom:1px solid #30363d;}
+.site-header h1{font-size:1.1rem;color:#fff;letter-spacing:2px;font-weight:700;}
+nav a{color:#ccd6f6;margin-left:15px;font-size:0.9rem;}
+nav a:hover{color:#58a6ff;}
+.wrap{max-width:1000px;margin:auto;padding:20px;}
+.box{background:#161b22;padding:20px;margin-bottom:20px;border-radius:8px;border:1px solid #21262d;}
+.section-title{font-size:1.6rem;color:#58a6ff;margin-bottom:15px;border-bottom:2px solid #58a6ff;display:inline-block;padding-bottom:4px;}
+.highlight{color:#58a6ff;font-weight:600;}
+.badge{display:inline-block;background:#1f3a5f;color:#79b8ff;padding:2px 10px;border-radius:20px;font-size:12px;margin:2px 3px;}
+.badge.award{background:#3a2e00;color:#f0c000;}
+.badge.acm{background:#1e3a1e;color:#56c176;}
+.pub-entry{border-left:3px solid #58a6ff;padding:10px 15px;margin-bottom:12px;background:#0d1117;border-radius:0 6px 6px 0;}
+.pub-entry h4{color:#e6edf3;font-size:0.95rem;margin-bottom:4px;}
+.pub-entry p{color:#8b949e;font-size:0.85rem;}
+.award-entry{border-left:3px solid #f0c000;padding:10px 15px;margin-bottom:12px;background:#0d1117;border-radius:0 6px 6px 0;}
+.award-entry h4{color:#f0c000;font-size:0.95rem;margin-bottom:4px;}
+.award-entry p{color:#8b949e;font-size:0.85rem;}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;}
+.proj-card{background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:16px;transition:border-color 0.2s;}
+.proj-card:hover{border-color:#58a6ff;}
+.proj-card h4{color:#e6edf3;margin-bottom:6px;font-size:0.95rem;}
+.proj-card p{color:#8b949e;font-size:0.85rem;line-height:1.6;}
+.proj-tech{margin-top:8px;}
+.skill-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
+.skill-pill{background:#1c2128;border:1px solid #30363d;color:#c9d1d9;padding:5px 14px;border-radius:20px;font-size:13px;}
+.exp-card{display:flex;gap:15px;align-items:flex-start;}
+.exp-dot{width:10px;height:10px;background:#58a6ff;border-radius:50%;margin-top:6px;flex-shrink:0;}
+.exp-body h4{color:#e6edf3;font-size:0.95rem;}
+.exp-body span{color:#8b949e;font-size:0.8rem;}
+.exp-body p{color:#c9d1d9;font-size:0.88rem;margin-top:6px;}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+.cert-card{background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:12px 14px;}
+.cert-card h5{color:#e6edf3;font-size:0.88rem;margin-bottom:3px;}
+.cert-card p{color:#8b949e;font-size:0.78rem;}
+.kaggle-block{background:#1a2535;border:1px solid #1f6feb;border-radius:8px;padding:14px 18px;margin-top:10px;}
+.kaggle-block h4{color:#79b8ff;}
+.kaggle-block p{color:#c9d1d9;font-size:0.88rem;margin-top:4px;}
+footer-local{display:block;background:#161b22;padding:20px;text-align:center;color:#8b949e;font-size:0.85rem;border-top:1px solid #30363d;}
 </style>
-</head>
-<body>
 
-<header>
+<div class="site-header">
   <h1>S. M MEHEDI HASAN</h1>
-
-  <!-- Menu Toggle -->
-  <input type="checkbox" id="menu-toggle">
-  <label for="menu-toggle" id="menu-icon">&#9776;</label>
-
-  <!-- Navigation -->
-  <nav id="navbar">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#research">Research</a>
+    <a href="#awards">Awards</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
   </nav>
-</header>
+</div>
 
-<script>
-(function() {
-  function responsiveHeader(){
-      const navbar = document.getElementById('navbar');
-      const icon = document.getElementById('menu-icon');
-      if(window.innerWidth <= 768){
-          navbar.style.flexDirection = 'column';
-          navbar.style.position = 'absolute';
-          navbar.style.top = '60px';
-          navbar.style.left = '0';
-          navbar.style.background = '#0A192F';
-          navbar.style.width = '100%';
-          navbar.style.display = 'none';
-          Array.from(navbar.children).forEach(a => {
-              a.style.margin = '10px 0';
-              a.style.textAlign = 'center';
-          });
-          icon.style.display = 'block';
-      } else {
-          navbar.style.display = 'flex';
-          navbar.style.flexDirection = 'row';
-          icon.style.display = 'none';
-      }
-  }
+<div class="wrap">
 
-  responsiveHeader();
-  window.addEventListener('resize', responsiveHeader);
-
-  document.getElementById('menu-toggle').addEventListener('change', function(){
-      const navbar = document.getElementById('navbar');
-      navbar.style.display = this.checked ? 'flex' : 'none';
-  });
-})();
-</script>
-
-
+<!-- HOME -->
 <section id="home">
-  <div class="box flex">
-    <img src="./images/IMG_20231014_124927.jpg" alt="Profile" class="profile">
-    <div class="intro-text">
-      <h2>Hi, I'm <span class="highlight">S. M Mehedi Hasan</span></h2>
-      <p>Third-year <span class="highlight">Computer Science</span> student at 
-        <strong>American International University-Bangladesh</strong> with a deep passion for 
-        <span class="highlight">technology</span>, innovation, and problem-solving.  
-        Skilled in crafting <span class="highlight">modern, responsive applications</span> and eager to take on 
-        challenges that make a meaningful difference. Always exploring new tools, frameworks, and 
-        ideas to create solutions that are not only functional but inspiring.</p>
-      
-      <!-- Download CV Button -->
-      <div style=" margin-top:20px;">
-        <a href="./files/SM_Mehedi_Hasan_CV.pdf" download 
-           style="display:inline-block;padding:14px 32px;
-                  background:linear-gradient(135deg,#4e73df,#1cc88a);
-                  color:#fff;font-weight:600;text-decoration:none;
-                  border-radius:50px;font-size:16px;
-                  box-shadow:0 6px 15px rgba(0,0,0,0.2);
-                  transition:all 0.3s ease; transform:translateY(0);">
-          📄 Download CV
-        </a>
+  <div class="box" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
+    <div style="width:120px;height:120px;border-radius:50%;background:#1f3a5f;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#79b8ff;border:3px solid #58a6ff;flex-shrink:0;"><img src="./images/IMG_20231014_124927.jpg"" alt="" srcset=""></div>
+    <div style="flex:1;min-width:240px;">
+      <h2 style="color:#fff;font-size:1.6rem;">Hi, I'm <span class="highlight">S. M Mehedi Hasan</span></h2>
+      <p style="margin-top:8px;color:#c9d1d9;">BSc CSE undergraduate at <strong>AIUB</strong>  · Award-winning researcher · AI/ML engineer · Software developer passionate about building technology that creates meaningful impact.</p>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;">
+        <span class="badge">AI & Machine Learning</span>
+        <span class="badge">Deep Learning</span>
+        <span class="badge">Full-Stack Web</span>
+        <span class="badge">Research Publishing</span>
+        <span class="badge">NLP</span>
+      </div>
+      <div style="margin-top:14px;">
+        <a href="mailto:smmehedihasan335@gmail.com" style="background:#1f6feb;color:#fff;padding:8px 20px;border-radius:6px;font-size:0.9rem;margin-right:10px;">Contact Me</a>
+        <a href="https://www.linkedin.com/in/sm-mehedihasan25/" target="_blank" style="border:1px solid #58a6ff;color:#58a6ff;padding:8px 20px;border-radius:6px;font-size:0.9rem;">LinkedIn</a>
       </div>
     </div>
   </div>
 </section>
 
-<script>
-  // Add hover animation effect
-  document.querySelectorAll('a[download]').forEach(btn => {
-    btn.addEventListener("mouseover", () => {
-      btn.style.transform = "translateY(-3px) scale(1.05)";
-      btn.style.boxShadow = "0 10px 20px rgba(0,0,0,0.25)";
-    });
-    btn.addEventListener("mouseout", () => {
-      btn.style.transform = "translateY(0) scale(1)";
-      btn.style.boxShadow = "0 6px 15px rgba(0,0,0,0.2)";
-    });
-  });
-</script>
+<!-- RESEARCH & PUBLICATIONS -->
+<section id="research">
+  <div class="box">
+    <h2 class="section-title">Research & Publications</h2>
 
+    <div class="pub-entry">
+      <h4>"Benefits of NLP Tools for Speaking Development of Second Language Learners"</h4>
+      <p>8th IEOM Bangladesh Conference on Industrial Engineering and Operations Management · 2025</p>
+      <p style="margin-top:4px;"><span class="badge acm">Track: Engineering Education</span> <span class="badge award">🏆 Best Track Paper Award</span></p>
+    </div>
 
+    <div class="pub-entry">
+      <h4>"A Game-Theoretic Approach to Multi-Stakeholder Requirement Prioritization in Software Engineering"</h4>
+      <p>4th International Conference on Computing Advancements (ICCA 2026) · Oct 15–16, 2026 · AIUB, Dhaka</p>
+      <p style="margin-top:4px;"><span class="badge acm">ACM Sponsored</span> <span class="badge">Software Engineering & Digital Transformation</span></p>
+    </div>
 
+    <div class="pub-entry">
+      <h4>"A Comparative Performance Analysis of State-of-the-Art Deep Learning Architectures for Malting Barley Disease Classification"</h4>
+      <p>4th International Conference on Computing Advancements (ICCA 2026) · Oct 15–16, 2026 · AIUB, Dhaka</p>
+      <p style="margin-top:4px;"><span class="badge acm">ACM Sponsored</span> <span class="badge">AI & Intelligent Systems</span></p>
+    </div>
 
-<section id="about">
-    <div class="box about-container">
-        <div class="about-text">
-            <h1 class="section-title">About Me</h1>
-            <p>
-                I am a proactive and detail-oriented <span class="highlight">Computer Science undergraduate</span> 
-                with experience in administrative support, student engagement, and event coordination. 
-                Former Campus Ambassador at <strong>ICT Olympiad Bangladesh</strong>, skilled in Microsoft Office, 
-                communication, and organizing campus-wide initiatives.
-            </p>
-            <p>
-                Demonstrates a strong work ethic, professional demeanor, and the ability to work both independently 
-                and collaboratively. Adept at handling multiple responsibilities with efficiency and enthusiasm. 
-                Quickly adapting, tech-savvy, and eager to contribute to a structured academic environment with 
-                professionalism and a <span class="highlight">can-do attitude</span>.
-            </p>
-            <div class="about-video" style="flex:1 1 400px;min-width:280px;display:flex;justify-content:center;">
-
+    <p style="margin-top:6px;font-size:0.82rem;color:#8b949e;">Also served as Technical Paper Reviewer · 8th IEOM Bangladesh Conference (2025) — reviewed 3 papers for IEOM Society International.</p>
   </div>
-        </div>
-      <div class="slider">
-    <div class="slide-track">
-        <img src="./images/certificate.jpg" alt="Addressing audience" class="slide">
-        <img src="./images/jetto.jpg" alt="Event" class="slide">
-        <img src="./images/presenattion.jpg" alt="Presentation" class="slide">
-        <img src="./images/addresss.jpg" alt="Addressing audience" class="slide">
-        <img src="./images/online_event.jpg" alt="Event" class="slide">
-    </div>
-</div>
-
-    </div>
 </section>
 
+<!-- AWARDS -->
+<section id="awards">
+  <div class="box">
+    <h2 class="section-title">Awards & Achievements</h2>
 
+    <div class="award-entry">
+      <h4>🏆 Best Track Paper Award</h4>
+      <p>8th IEOM Bangladesh International Conference · 2025 · Track: Engineering Education and Curriculum Improvement</p>
+    </div>
+
+    <div class="kaggle-block">
+      <h4>Kaggle Competition · Predicting Stellar Class (Playground Series S6E6)</h4>
+      <p>Achieved <strong>96.2% balanced accuracy</strong> among 2,183 teams (4,600+ entrants, 23,000+ submissions). Applied ensemble learning and feature engineering on synthetic tabular astronomy data (GALAXY / STAR / QSO classification).</p>
+    </div>
+
+    <div class="award-entry" style="margin-top:12px;">
+      <h4>Campus Ambassador · ICT Olympiad Bangladesh – Season 2 (2025)</h4>
+      <p>Certificate of Appreciation · Promoted ICT education and coordinated outreach events at university level.</p>
+    </div>
+
+    <div class="award-entry" style="margin-top:8px;">
+      <h4>Career Development Program · AIUB (January 2026)</h4>
+      <p>Certificate No: CDP-268704</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
 <section id="experience">
-    <h1 class="section-title">Experience</h1>
-    <hr>
-    <div class="box experience-box">
-    <a href="https://www.ictolympiadbangladesh.com/" target="_blank" style="text-decoration:none;">
-        <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-    <img src="./images/ict.jpg" alt="ICT Olympiad" 
-         style="width:200px; height:auto; object-fit:contain; display:block;">
-</div>
+  <div class="box">
+    <h2 class="section-title">Experience</h2>
 
-    </a>
-    <h3 style="color:#58a6ff; text-align:center; margin-bottom:5px;">
-        <a href="https://www.ictolympiadbangladesh.com/" target="_blank" style="color:#58a6ff; text-decoration:none;">Campus Ambassador S2 - ICT Olympiad Bangladesh</a>
-    </h3>
-    <p style="color:#8b949e; text-align:center; font-style:italic; margin-top:0;">Oct 2024 – May 2025</p>
-    <div style="color:#c9d1d9; line-height:1.6; padding-left:10px;">
-    <p>Greeted and communicated with students, teachers, and organizers during events, ensuring a smooth campus outreach experience.
-    Responded to inquiries and promoted programs, helping students and participants understand registration procedures and event schedules.
-    Maintained accurate records and collaborated with the central team to ensure proper coordination and smooth execution of all activities.</p>
-</div>
-
-</div>
-
-
-   <div class="box experience-box">
-    <a href="https://www.youtube.com/@TriangleTech71" target="_blank" style="text-decoration:none;">
-        <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-    <img src="./images/traYoutube_logo.png" alt="Youtube" 
-         style="width:200px; height:auto; object-fit:contain; display:block;">
-</div>
-
-    </a>
-    <h3 style="color:#58a6ff; text-align:center; margin-bottom:5px;">
-        <a href="https://www.youtube.com/@TriangleTech71" target="_blank" style="color:#58a6ff; text-decoration:none;">
-            Content Creator – YouTube (@TriangleTech71)
-        </a>
-    </h3>
-    <p style="color:#8b949e; text-align:center; font-style:italic; margin-top:0;">Nov 2023 – Present</p>
-    <div style="color:#c9d1d9; line-height:1.6; padding-left:10px;">
-        <p>Created and managed educational programming content, focusing on computer science concepts and software tutorials.
-        Designed engaging thumbnails and titles to improve visibility and audience retention.
-        Shared tutorials and study strategies while actively engaging with the audience to build a learning community.</p>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div class="exp-card">
+        <div class="exp-dot"></div>
+        <div class="exp-body">
+          <h4>Campus Ambassador · ICT Olympiad Bangladesh Season 2</h4>
+          <span>Oct 2024 – May 2025</span>
+          <p>Promoted the program and increased student engagement through organized outreach events. Encouraged participation in ICT competitions; strengthened leadership, communication, and networking skills.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-dot" style="background:#f0c000;"></div>
+        <div class="exp-body">
+          <h4>Content Creator · YouTube <a href="https://www.youtube.com/@TriangleTech71" target="_blank">@TriangleTech71</a></h4>
+          <span>Nov 2023 – Present</span>
+          <p>Created educational programming content covering CS concepts and software tutorials. Designed thumbnails, managed audience engagement, and built a learning community around coding and tech.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-dot" style="background:#56c176;"></div>
+        <div class="exp-body">
+          <h4>Technical Paper Reviewer · IEOM Society International</h4>
+          <span>2025</span>
+          <p>Independently reviewed 3 technical papers submitted to the 8th IEOM Bangladesh Conference on Industrial Engineering and Operations Management.</p>
+        </div>
+      </div>
     </div>
-</div>
-
+  </div>
 </section>
 
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="box">
+    <h2 class="section-title">Projects</h2>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <h4>DocMateV3 – Healthcare Management System</h4>
+        <p>Full-stack healthcare platform with 3 user roles (Admin, Doctor, Patient) using MVC architecture and session-based auth. Real-time AJAX updates for appointments and live stats.</p>
+        <div class="proj-tech"><span class="badge">PHP</span><span class="badge">MySQL</span><span class="badge">JavaScript</span><span class="badge">MVC</span></div>
+      </div>
+      <div class="proj-card">
+        <h4>RenalVision – Kidney CT Diagnosis Bot</h4>
+        <p>Ensemble deep learning system for kidney abnormality classification using EfficientNet + ResNet transfer learning. SMOTE class balancing; deployed as Telegram bot with 12,000 CT image inference.</p>
+        <div class="proj-tech"><span class="badge">PyTorch</span><span class="badge">Computer Vision</span><span class="badge">SMOTE</span><span class="badge">Telegram API</span></div>
+      </div>
+      <div class="proj-card">
+        <h4>Peddy – Pet Adoption Platform</h4>
+        <p>Responsive pet adoption platform with real-time filtering, async API data handling, and mobile-friendly UI.</p>
+        <div class="proj-tech"><span class="badge">JavaScript</span><span class="badge">REST API</span><span class="badge">Tailwind CSS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="box">
+    <h2 class="section-title">Skills</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:10px;">
+      <div>
+        <p style="color:#58a6ff;font-size:0.82rem;font-weight:600;margin-bottom:8px;letter-spacing:1px;">LANGUAGES</p>
+        <div class="skill-grid">
+          <span class="skill-pill">C++</span><span class="skill-pill">Java</span><span class="skill-pill">Python</span><span class="skill-pill">JavaScript</span><span class="skill-pill">C#</span><span class="skill-pill">SQL</span>
+        </div>
+      </div>
+      <div>
+        <p style="color:#58a6ff;font-size:0.82rem;font-weight:600;margin-bottom:8px;letter-spacing:1px;">ML / AI</p>
+        <div class="skill-grid">
+          <span class="skill-pill">PyTorch</span><span class="skill-pill">Scikit-learn</span><span class="skill-pill">XGBoost</span><span class="skill-pill">LightGBM</span><span class="skill-pill">Hugging Face</span><span class="skill-pill">OpenCV</span><span class="skill-pill">Grad-CAM</span>
+        </div>
+      </div>
+      <div>
+        <p style="color:#58a6ff;font-size:0.82rem;font-weight:600;margin-bottom:8px;letter-spacing:1px;">WEB</p>
+        <div class="skill-grid">
+          <span class="skill-pill">React</span><span class="skill-pill">Node.js</span><span class="skill-pill">Tailwind CSS</span><span class="skill-pill">REST APIs</span><span class="skill-pill">Firebase</span>
+        </div>
+      </div>
+      <div>
+        <p style="color:#58a6ff;font-size:0.82rem;font-weight:600;margin-bottom:8px;letter-spacing:1px;">DATABASES</p>
+        <div class="skill-grid">
+          <span class="skill-pill">MySQL</span><span class="skill-pill">MongoDB</span><span class="skill-pill">MSSQL</span><span class="skill-pill">Oracle SQL</span>
+        </div>
+      </div>
+      <div>
+        <p style="color:#58a6ff;font-size:0.82rem;font-weight:600;margin-bottom:8px;letter-spacing:1px;">TOOLS & PRACTICES</p>
+        <div class="skill-grid">
+          <span class="skill-pill">Git</span><span class="skill-pill">GitHub</span><span class="skill-pill">Agile</span><span class="skill-pill">SOLID</span><span class="skill-pill">MVC</span><span class="skill-pill">CI/CD</span><span class="skill-pill">Linux</span><span class="skill-pill">UML</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="box">
+    <h2 class="section-title">Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <h5>Python</h5>
+        <p>HackerRank · Feb 2025</p>
+        <p style="margin-top:2px;color:#58a6ff;font-size:0.75rem;">ID: 8ebc476a1e15</p>
+      </div>
+      <div class="cert-card">
+        <h5>Foundational C# with Microsoft</h5>
+        <p>freeCodeCamp · Aug 2024</p>
+      </div>
+      <div class="cert-card">
+        <h5>Prompt Engineering</h5>
+        <p>Programming Hero · Jun 2024</p>
+        <p style="margin-top:2px;color:#58a6ff;font-size:0.75rem;">ID: PH4636</p>
+      </div>
+      <div class="cert-card">
+        <h5>Windows Command Line Basics</h5>
+        <p>Udemy · May 2023</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
 <section id="education">
-    <h1 class="section-title">Education</h1>
-    <hr>
-
-    
-    <!-- AIUB -->
-   <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-    <img src="./images/aiub-logo.png" alt="aiub" 
-         style="width:200px; height:auto; object-fit:contain; display:block;">
-</div>
-
-
-        </div>
-        <!-- Description -->
-        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
-            <h4 style="color:#58a6ff; margin-bottom:5px;">BSc, Computer Science and Engineering</h4>
-            <p style="margin:2px 0;"><strong>American International University-Bangladesh (AIUB), Dhaka</strong> - 
-            <a href="https://www.aiub.edu" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
-            <p style="color:#8b949e; margin:2px 0;">2022 – Present | CGPA: 3.71</p>
-            <p>The Bachelor of Science in Computer Science and Engineering at AIUB equips students with a strong foundation in software development, 
-                data structures, algorithms, and emerging technologies. Emphasis is placed on hands-on projects, teamwork, and developing problem-solving skills, 
-                preparing graduates for both industry and research opportunities. Coursework includes programming, databases, networks, and AI.</p>
-        </div>
-        <hr>
+  <div class="box">
+    <h2 class="section-title">Education</h2>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="border-left:3px solid #58a6ff;padding:10px 16px;background:#0d1117;border-radius:0 6px 6px 0;">
+        <h4 style="color:#e6edf3;">BSc, Computer Science and Engineering</h4>
+        <p style="color:#58a6ff;font-size:0.88rem;">American International University–Bangladesh (AIUB), Dhaka</p>
+        <p style="color:#8b949e;font-size:0.82rem;">Sep 2022 – Aug 2026 · CGPA: 3.70 / 4.00</p>
+      </div>
+      <div style="border-left:3px solid #30363d;padding:10px 16px;background:#0d1117;border-radius:0 6px 6px 0;">
+        <h4 style="color:#e6edf3;">Higher Secondary Certificate (HSC)</h4>
+        <p style="color:#c9d1d9;font-size:0.88rem;">Govt. Shah Sultan College, Bogura</p>
+        <p style="color:#8b949e;font-size:0.82rem;">Result: 5.0 / 5.0</p>
+      </div>
+      <div style="border-left:3px solid #30363d;padding:10px 16px;background:#0d1117;border-radius:0 6px 6px 0;">
+        <h4 style="color:#e6edf3;">Secondary School Certificate (SSC)</h4>
+        <p style="color:#c9d1d9;font-size:0.88rem;">Police Lines School and College, Bogura</p>
+        <p style="color:#8b949e;font-size:0.82rem;">Result: 5.0 / 5.0</p>
+      </div>
     </div>
-
-    <!-- HSC -->
-    <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-    <img src="./images/gssc.jpg" alt="gssc" 
-         style="width:200px; height:auto; object-fit:contain; display:block;">
-</div>
-
-        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
-            <h4 style="color:#58a6ff; margin-bottom:5px;">Higher Secondary Certificate (HSC)</h4>
-            <p style="margin:2px 0;"><strong>Govt. Shah Sultan College, Bogura - 5800</strong></p>
-            <a href="https://govssc.edu.bd/" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
-            <p style="color:#8b949e; margin:2px 0;">Result: 5.0/5.0</p>
-            <p>The Higher Secondary Certificate program at Govt. Shah Sultan College provided a solid academic foundation in science and mathematics, 
-            developing critical thinking, analytical skills, and a strong work ethic that prepared me for undergraduate studies in Computer Science.</p>
-        </div>
-        <hr>
-    </div>
-
-    <!-- SSC -->
-   <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-    <img src="./images/plsc.png" alt="plsc" 
-         style="width:200px; height:auto; object-fit:contain; display:block;">
-</div>
-
-        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
-            <h4 style="color:#58a6ff; margin-bottom:5px;">Secondary School Certificate (SSC)</h4>
-            <p style="margin:2px 0;"><strong>Police Lines School and College, Bogura - 5800</strong></p>
-            <a href="https://plscb.edu.bd/" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
-            <p style="color:#8b949e; margin:2px 0;">Result: 5.0/5.0</p>
-            <p>The Secondary School Certificate curriculum emphasized fundamental science, mathematics, and critical reasoning, fostering a disciplined and curious mindset 
-            that laid the groundwork for future studies in Computer Science.</p>
-        </div>
-        <hr>
-    </div>
-
+  </div>
 </section>
 
-<br>
-<h1 style="text-align:center;">Skills</h1>
-
-<!-- Font Awesome (place in <head> or before this section) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-<section id="skills" style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;padding:30px;">
-
-
-      <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-code" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">C#</span>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="box" style="text-align:center;">
+    <h2 class="section-title">Contact</h2>
+    <p style="margin-bottom:14px;color:#8b949e;">Open to research collaborations, internship opportunities, and interesting conversations.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+      <a href="mailto:smmehedihasan335@gmail.com" style="background:#161b22;border:1px solid #30363d;color:#c9d1d9;padding:8px 18px;border-radius:6px;font-size:0.88rem;">✉ Gmail</a>
+      <a href="https://www.linkedin.com/in/sm-mehedihasan25/" target="_blank" style="background:#161b22;border:1px solid #30363d;color:#c9d1d9;padding:8px 18px;border-radius:6px;font-size:0.88rem;">LinkedIn</a>
+      <a href="https://github.com/sm-mehedi" target="_blank" style="background:#161b22;border:1px solid #30363d;color:#c9d1d9;padding:8px 18px;border-radius:6px;font-size:0.88rem;">GitHub</a>
+      <a href="https://www.youtube.com/@TriangleTech71" target="_blank" style="background:#161b22;border:1px solid #30363d;color:#c9d1d9;padding:8px 18px;border-radius:6px;font-size:0.88rem;">YouTube @TriangleTech71</a>
+    </div>
+    <p style="margin-top:16px;color:#8b949e;font-size:0.8rem;">Dhaka, Bangladesh · +8801600334597</p>
   </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fab fa-python" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Python</span>
-  </div>
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-magic" style="font-size:32px;margin-bottom:12px;color:#e83e8c;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Prompting</span>
-</div>
-
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-database" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">SQL</span>
-  </div>
-  
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fab fa-microsoft" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Microsoft Office</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-comments" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Professional Communication</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-users" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Team Coordination</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-bullhorn" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Event & Campaign Support</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-user-graduate" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Student Outreach</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-tasks" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Administrative Tasks</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-chalkboard" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Presentation Prep</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-bolt" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Quick Learner</span>
-  </div>
-
-  
-
-
-
 </section>
-<h1 style="text-align:center;margin:30px 0;">Certificates</h1>
 
-<!-- Slider Container -->
-<div style="position:relative;width:100%;max-width:800px;margin:0 auto;overflow:hidden;">
-  
-  <!-- Slider Wrapper -->
-  <div id="cert-slider" style="display:flex;transition:transform 0.5s ease;">
-    
-      <img src="./images/Screenshot 2025-08-17 183928.png" alt="Certificate 3" style="max-width:100%;height:auto;border-radius:12px;">
-    <!-- Certificate 1 -->
-      <img src="./images/aicerts_page-0001.jpg" alt="Certificate 1" style="max-width:100%;height:auto;border-radius:12px;">
-    
-    <!-- Certificate 2 -->
-      <img src="./images/py.jpg" alt="Certificate 2" style="max-width:100%;height:auto;border-radius:12px;">
-      <img src="./images/sql.jpg" alt="Certificate 2" style="max-width:100%;height:auto;border-radius:12px;">
-    
-    
-    <!-- Certificate 3 -->
-    
-    
-  </div>
-  
-  <!-- Navigation Buttons -->
- <button onclick="moveSlide(-1)" style="position:absolute;top:50%;left:10px;transform:translateY(-50%);background:#333;color:#fff;border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;">‹</button>
-<button onclick="moveSlide(1)" style="position:absolute;top:50%;right:10px;transform:translateY(-50%);background:#333;color:#fff;border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;">›</button>
 </div>
 
-<script>
-  let currentSlide = 0;
-  function moveSlide(direction) {
-    const slider = document.getElementById("cert-slider");
-    const totalSlides = slider.children.length;
-    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-  }
-
-  // Auto-slide every 5 seconds
-  setInterval(() => {
-    moveSlide(1);
-  }, 5000);
-</script>
-
-<br>
-
-
-<footer id="contact" style="background:#161b22; padding:40px 20px; color:#c9d1d9; display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; border-top:2px solid #58a6ff; box-shadow:0 -5px 20px rgba(88,166,255,0.2);">
-
-  <!-- About / Logo -->
-  <div style="flex:1; min-width:250px;">
-    <h2 style="color:#58a6ff; margin-bottom:10px;">S. M Mehedi Hasan</h2>
-    <p>Computer Science Student | Researcher | Tech Enthusiast</p>
-    <p>Always exploring innovative solutions and creating impactful projects.</p>
-  </div>
-
-  <!-- Contact -->
-  <div style="min-width:200px;">
-    <h3 style="color:#58a6ff; margin-bottom:10px;">Contact Me</h3>
-    <a href="mailto:hasanmehedi63395@gmail.com" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;"> 
-      <img src="./images/gmail-logo-on-transparent-white-background-free-vector.jpg" alt="Gmail" style="width:25px; height:25px;"> Gmail 
-    </a>
-    <a href="https://facebook.com" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
-      <img src="./images/fac.jpg" alt="Facebook" style="width:25px; height:25px;"> Facebook
-    </a>
-    <a href="https://www.linkedin.com/in/sm-mehedihasan25/" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
-      <img src="./images/LinkedIn_logo_initials.png" alt="LinkedIn" style="width:25px; height:25px;"> LinkedIn
-    </a>
-    <a href="https://github.com/sm-mehedi" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
-  <img src="./images/git.png" alt="GitHub" style="width:25px; height:25px;"> GitHub
-</a>
-
-  </div>
-
-  <!-- Address -->
-  <div style="flex:1; min-width:250px;">
-    <h3 style="color:#58a6ff; margin-bottom:10px;">Address</h3>
-    <p>Kuratoli, Dhaka, Bangladesh</p>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.384132915767!2d90.4217865!3d23.8209686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c6489f1f33bf%3A0x8cf48cff0b79ee99!2sKuratolii%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1692100000000!5m2!1sen!2sbd" 
-      width="100%" height="150" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-
-</footer>
-
-<style>
-  footer a:hover {
-    color:#58a6ff;
-    transform: translateY(-3px);
-  }
-  footer iframe {
-    box-shadow: 0 0 10px rgba(88,166,255,0.3);
-  }
-  
-  @media (max-width: 768px) {
-    footer > div {
-      min-width: 100%;
-      margin-bottom: 20px;
-    }
-    
-    footer {
-      padding: 30px 15px;
-    }
-  }
-</style>
-
-</body>
-</html>
+<div style="background:#161b22;padding:16px;text-align:center;color:#8b949e;font-size:0.82rem;border-top:1px solid #30363d;">
+  S. M Mehedi Hasan · Computer Science & Engineering · AIUB · 2026
+</div>
