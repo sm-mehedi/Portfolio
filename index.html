@@ -1,1167 +1,741 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SM MEHEDI HASAN</title>
+<title>S. M Mehedi Hasan — CSE Undergraduate & ML Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #0d1117;
-        color: #c9d1d9;
-        line-height: 1.6;
-    }
-    header {
-        background-color: #161b22;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-    }
-    header h1 {
-        font-size: 1.2rem;
-        color: #fff;
-        margin: 0;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
-    nav {
-        display: flex;
-    }
-    nav a {
-        color: #ccd6f6;
-        margin-left: 15px;
-        text-decoration: none;
-        font-size: 0.95rem;
-    }
-    nav a:hover {
-        color: #58a6ff;
-    }
-    section {
-        max-width: 1000px;
-        margin: auto;
-        padding: 20px;
-    }
-    .box {
-        background: #161b22;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-    }
-    img.profile {
-        border-radius: 50%;
-        width: 250px;
-        height: 250px;
-        object-fit: cover;
-        flex-shrink: 0;
-        border: 4px solid #58a6ff;
-        box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
-    }
+  :root{
+    --bg:#0F1016;
+    --surface:#171926;
+    --surface-2:#1D2030;
+    --text:#E9E9F2;
+    --muted:#9A9BB0;
+    --line:#2A2D40;
+    --coral:#FF6B4A;
+    --coral-soft:#3A2620;
+    --indigo:#7C79FF;
+    --indigo-soft:#242245;
+    --good:#3FBF83;
+    --good-soft:#173224;
+    --amber:#E8A33D;
+    --amber-soft:#332510;
+    --status-coral:#FF6B4A;
+    --status-indigo:#7C79FF;
+    --status-good:#3FBF83;
+    --status-amber:#E8A33D;
+    --mono:'IBM Plex Mono', monospace;
+    --display:'Sora', sans-serif;
+    --body:'Inter', sans-serif;
+    --shadow: 0 24px 60px -24px rgba(0,0,0,.55);
+  }
+  html[data-theme="light"]{
+    --bg:#F6F5FA;
+    --surface:#FFFFFF;
+    --surface-2:#F0EFF7;
+    --text:#15161F;
+    --muted:#5C5D70;
+    --line:#E3E2EE;
+    --coral-soft:#FFE4DB;
+    --indigo-soft:#E7E5FF;
+    --good-soft:#DCF5E7;
+    --amber-soft:#FBEBD1;
+    --status-coral:#C43E1F;
+    --status-indigo:#4B46E0;
+    --status-good:#0F6A40;
+    --status-amber:#92650B;
+    --shadow: 0 24px 50px -28px rgba(20,20,40,.18);
+  }
 
-    .intro-text h2 {
-        margin-top: 0;
-        font-size: 1.8rem;
-        color: #fff;
-    }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    transition:background .35s ease, color .35s ease;
+  }
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--coral); color:#fff;}
+  :focus-visible{outline:2px solid var(--coral); outline-offset:3px;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 32px;}
 
-    .intro-text p {
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: #c9d1d9;
-    }
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:100;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 32px; max-width:1100px; margin:0 auto; gap:16px;
+  }
+  .logo{
+    font-family:var(--mono); font-weight:600; font-size:15px;
+    display:flex; align-items:center; gap:8px; white-space:nowrap;
+  }
+  .logo .bracket{color:var(--coral);}
+  nav.links{display:flex; gap:24px; font-size:13.5px; font-weight:500; flex:1; justify-content:center;}
+  nav.links a{color:var(--muted); position:relative; padding:4px 0; white-space:nowrap;}
+  nav.links a:hover, nav.links a.active{color:var(--text);}
+  nav.links a.active::after{
+    content:''; position:absolute; left:0; right:0; bottom:-2px; height:2px; background:var(--coral);
+  }
+  .nav-right{display:flex; align-items:center; gap:10px;}
+  .theme-btn{
+    width:36px; height:36px; border-radius:9px; border:1px solid var(--line);
+    background:var(--surface); color:var(--text); cursor:pointer; font-size:14px;
+    display:flex; align-items:center; justify-content:center; transition:.2s;
+  }
+  .theme-btn:hover{border-color:var(--coral); color:var(--status-coral);}
+  .menu-btn{display:none; background:none; border:none; font-size:20px; color:var(--text); cursor:pointer;}
 
-    .highlight {
-        color: #58a6ff;
-        font-weight: bold;
+  @media (max-width:940px){
+    nav.links{
+      position:fixed; top:64px; left:0; right:0; background:var(--surface);
+      flex-direction:column; gap:0; padding:8px 0; border-bottom:1px solid var(--line);
+      transform:translateY(-140%); transition:transform .3s ease; box-shadow:var(--shadow);
+      justify-content:flex-start;
     }
+    nav.links.open{transform:translateY(0);}
+    nav.links a{padding:14px 32px; width:100%;}
+    .menu-btn{display:block;}
+  }
 
-    .flex {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 30px;
-    }
+  /* ---------- HERO ---------- */
+  .hero{padding:60px 0 40px;}
+  .hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:center;}
+  @media (max-width:920px){.hero-grid{grid-template-columns:1fr;}}
 
-    .flex p {
-        flex: 1;
-        font-size: 1.1rem;
-    }
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.06em; color:var(--status-coral);
+    display:inline-flex; align-items:center; gap:8px; margin-bottom:16px; font-weight:600;
+  }
+  .eyebrow::before{content:'>'; color:var(--muted); font-weight:400;}
 
-    .flex img {
-        flex-shrink: 0;
-    }
-    .about-images {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
-    }
-    .about-images img {
-        max-width: 32%;
-        border-radius: 6px;
-    }
-    .experience-box {
-        margin-bottom: 15px;
-    }
-    .experience-logo {
-        max-height: 40px;
-        display: block;
-        margin-bottom: 10px;
-    }
-    .education-box {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .education-box img {
-        max-height: 50px;
-        display: block;
-        margin: auto;
-    }
-    ul {
-        padding-left: 20px;
-    }
-    footer {
-        text-align: center;
-        padding: 15px;
-        background: #161b22;
-    }
-    footer a {
-        color: #58a6ff;
-        margin: 0 10px;
-        text-decoration: none;
-    }
-    .section-title {
-        font-size: 2rem;
-        color: #58a6ff;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #58a6ff;
-        display: inline-block;
-        padding-bottom: 5px;
-    }
+  h1.name{
+    font-family:var(--display); font-weight:800; font-size:clamp(32px,4.6vw,48px);
+    line-height:1.08; letter-spacing:-0.01em; margin-bottom:12px;
+  }
+  .role{font-size:17px; font-weight:600; color:var(--text); margin-bottom:8px;}
+  .tagline{font-size:15px; color:var(--muted); max-width:50ch; margin-bottom:26px;}
 
-    .about-container {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        align-items: flex-start;
-    }
+  .chip-row{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:12.5px; font-weight:500; color:var(--text);
+    background:var(--surface); border:1px solid var(--line);
+    padding:9px 14px; border-radius:100px; transition:.2s;
+  }
+  .chip i{color:var(--coral); font-size:12px;}
+  .chip:hover{border-color:var(--coral); transform:translateY(-1px); box-shadow:var(--shadow);}
 
-    .about-text {
-        flex: 1 1 55%;
-        font-size: 1.05rem;
-        line-height: 1.8;
-    }
+  /* ---- training terminal ---- */
+  .terminal{
+    background:#0B0C12; border:1px solid #23263A; border-radius:14px; overflow:hidden;
+    box-shadow:var(--shadow); font-family:var(--mono); font-size:12.5px;
+  }
+  .term-bar{
+    padding:12px 16px; background:#0B0C12; border-bottom:1px solid #1E2033;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .term-bar-top{display:flex; align-items:center; justify-content:space-between;}
+  .term-title{color:#767AA0; font-size:11.5px;}
+  .term-status{color:var(--status-coral); font-size:11px; font-weight:600;}
+  .progress-track{height:3px; background:#1E2033; border-radius:3px; overflow:hidden;}
+  .progress-fill{height:100%; width:100%; background:linear-gradient(90deg,var(--coral),var(--indigo)); animation:load 2.6s ease-in-out infinite;}
+  @keyframes load{0%{transform:translateX(-100%);} 60%{transform:translateX(0);} 100%{transform:translateX(0);}}
+  .term-body{padding:20px; color:#B9BCD6;}
+  .term-body .muted{color:#5A5D80;}
+  .term-body .tag{color:#767AA0;}
+  .term-body .ok{color:#3FBF83;}
+  .term-body .num{color:var(--status-coral); font-weight:600;}
+  .term-line{margin-bottom:8px; white-space:pre-wrap;}
+  .cursor{display:inline-block; width:7px; height:13px; background:var(--coral); vertical-align:middle; animation:blink 1s steps(2) infinite;}
+  @keyframes blink{0%,100%{opacity:1;} 50%{opacity:.2;}}
+  .term-summary{
+    margin-top:12px; padding-top:12px; border-top:1px dashed #262940; color:#E9E9F2; font-weight:600;
+  }
 
-    .about-images {
-        flex: 1 1 40%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:52px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{margin-bottom:30px;}
+  h2.title{
+    font-family:var(--display); font-weight:800; font-size:clamp(22px,2.6vw,28px);
+    letter-spacing:-.01em;
+  }
 
-    .about-images img {
-        width: 100%;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+  /* ---------- ABOUT ---------- */
+  .about-text{font-size:15.5px; color:var(--text); max-width:74ch;}
+  .stat-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:26px;}
+  .stat{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    padding:16px 20px; min-width:140px;
+  }
+  .stat .num{font-family:var(--display); font-weight:800; font-size:22px; color:var(--status-coral);}
+  .stat .lbl{font-size:12px; color:var(--muted); margin-top:2px;}
 
-    .slider {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-    }
+  /* ---------- EDUCATION timeline ---------- */
+  .timeline{position:relative; padding-left:28px;}
+  .timeline::before{content:''; position:absolute; left:5px; top:6px; bottom:6px; width:2px; background:var(--line);}
+  .tl-item{position:relative; padding-bottom:8px;}
+  .tl-item::before{
+    content:''; position:absolute; left:-28px; top:4px; width:12px; height:12px;
+    border-radius:50%; background:var(--bg); border:3px solid var(--coral);
+  }
+  .tl-date{font-family:var(--mono); font-size:12px; color:var(--status-coral); font-weight:600; margin-bottom:4px;}
+  .tl-title{font-weight:700; font-size:16.5px; margin-bottom:3px;}
+  .tl-sub{color:var(--muted); font-size:14.5px;}
 
-    .slide-track {
-        display: flex;
-        animation: slide 15s linear infinite;
-    }
+  /* ---------- RESEARCH ---------- */
+  .paper-list{display:flex; flex-direction:column; gap:16px;}
+  .paper-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:22px;
+    display:flex; gap:18px; align-items:flex-start;
+  }
+  @media (max-width:640px){.paper-card{flex-direction:column;}}
+  .paper-icon{
+    flex:none; width:44px; height:44px; border-radius:10px; background:var(--indigo-soft); color:var(--status-indigo);
+    display:flex; align-items:center; justify-content:center; font-size:18px;
+  }
+  .paper-card h3{font-size:16px; font-weight:700; margin-bottom:6px;}
+  .paper-meta{font-size:13.5px; color:var(--muted); margin-bottom:3px;}
+  .status-badge{
+    display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11px; font-weight:600;
+    padding:4px 10px; border-radius:6px; letter-spacing:.03em; margin-top:10px;
+  }
+  .status-published{background:var(--good-soft); color:var(--status-good);}
+  .status-submitted{background:var(--amber-soft); color:var(--status-amber);}
+  .paper-link{margin-top:12px; display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:13.5px; color:var(--status-coral);}
+  .paper-link i{color:var(--coral); font-size:11px;}
 
-    .slide {
-        width: 400px;
-        height: 250px;
-        object-fit: cover;
-        flex-shrink: 0;
-    }
+  /* ---------- BUILDING (in progress) ---------- */
+  .build-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:760px){.build-grid{grid-template-columns:1fr;}}
+  .build-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:22px;
+    position:relative; overflow:hidden;
+  }
+  .build-card::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,var(--coral),var(--indigo));
+  }
+  .build-badge{
+    display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11px; font-weight:600;
+    background:var(--coral-soft); color:var(--status-coral); padding:4px 10px; border-radius:6px; margin-bottom:12px;
+  }
+  .build-badge .dot{width:6px; height:6px; border-radius:50%; background:var(--coral); animation:blink 1.4s ease-in-out infinite;}
+  .build-card h3{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .build-card p{font-size:14px; color:var(--muted);}
 
-    /* Animation */
-    @keyframes slide {
-        0%   { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-    }
+  /* ---------- ACHIEVEMENTS grid ---------- */
+  .ach-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px;}
+  @media (max-width:760px){.ach-grid{grid-template-columns:1fr;}}
+  .ach-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px;
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .ach-icon{
+    flex:none; width:38px; height:38px; border-radius:9px; background:var(--coral-soft); color:var(--status-coral);
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+  }
+  .ach-card h3{font-size:15px; font-weight:700; margin-bottom:4px;}
+  .ach-card p{font-size:13.5px; color:var(--muted);}
 
-    .about-images img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(88, 166, 255, 0.6);
-    }
-    
-    /* Menu Toggle Styles */
-    #menu-toggle {
-        display: none;
-    }
-    
-    #menu-icon {
-        font-size: 26px;
-        cursor: pointer;
-        display: none;
-        color: #fff;
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 1024px) {
-        /* Tablet styles */
-        .profile {
-            width: 200px;
-            height: 200px;
-        }
-        
-        .flex {
-            gap: 20px;
-        }
-        
-        .intro-text h2 {
-            font-size: 1.5rem;
-        }
-        
-        .intro-text p {
-            font-size: 1rem;
-        }
-        
-        .section-title {
-            font-size: 1.7rem;
-        }
-        
-        .about-text {
-            font-size: 1rem;
-        }
-        
-        .slide {
-            width: 350px;
-            height: 220px;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        /* Mobile and small tablet styles */
-        header {
-            padding: 10px 15px;
-        }
-        
-        .flex {
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .profile {
-            width: 180px;
-            height: 180px;
-        }
-        
-        .intro-text h2 {
-            font-size: 1.4rem;
-            text-align: center;
-        }
-        
-        .intro-text p {
-            text-align: center;
-            font-size: 0.95rem;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            display: block;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .about-container {
-            flex-direction: column;
-        }
-        
-        .about-text {
-            font-size: 0.95rem;
-        }
-        
-        .about-images {
-            grid-template-columns: 1fr;
-            margin-top: 20px;
-        }
-        
-        .slide {
-            width: 300px;
-            height: 200px;
-        }
-        
-        /* Navigation for mobile */
-        #navbar {
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            background: #0A192F;
-            width: 100%;
-            display: none;
-            padding: 15px 0;
-        }
-        
-        #navbar a {
-            margin: 10px 0;
-            text-align: center;
-            font-size: 1rem;
-        }
-        
-        #menu-icon {
-            display: block;
-        }
-        
-        /* Experience boxes */
-        .experience-box {
-            padding: 15px;
-        }
-        
-        /* Education boxes */
-        .education-box {
-            flex-direction: column;
-            gap: 15px;
-            text-align: center;
-        }
-        
-        .education-box > div {
-            flex: 1 1 100%;
-        }
-        
-        /* Skills section */
-        #skills {
-            padding: 20px 10px;
-        }
-        
-        #skills > div {
-            width: 150px;
-            padding: 15px;
-        }
-        
-        /* Footer */
-        footer > div {
-            min-width: 100%;
-            margin-bottom: 20px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        /* Small mobile devices */
-        .profile {
-            width: 150px;
-            height: 150px;
-        }
-        
-        .intro-text h2 {
-            font-size: 1.3rem;
-        }
-        
-        .section-title {
-            font-size: 1.3rem;
-        }
-        
-        .slide {
-            width: 250px;
-            height: 180px;
-        }
-        
-        /* Skills section */
-        #skills > div {
-            width: 130px;
-            padding: 12px;
-        }
-        
-        #skills > div i {
-            font-size: 28px;
-        }
-        
-        #skills > div span {
-            font-size: 12px;
-        }
-        .project-btn{
-    display:inline-block;
-    padding:10px 22px;
-    margin-right:10px;
-    margin-top:10px;
-    background:#58a6ff;
-    color:white;
-    text-decoration:none;
-    border-radius:6px;
-    transition:.3s;
-    font-weight:600;
-}
+  /* ---------- EXPERIENCE ---------- */
+  .exp-entry{padding:18px 0; border-bottom:1px solid var(--line); display:flex; gap:18px; align-items:flex-start;}
+  .exp-entry:last-child{border-bottom:none;}
+  .exp-icon{
+    flex:none; width:38px; height:38px; border-radius:9px; background:var(--indigo-soft); color:var(--status-indigo);
+    display:flex; align-items:center; justify-content:center; font-size:15px; margin-top:2px;
+  }
+  .exp-title{font-weight:700; font-size:15.5px;}
+  .exp-meta{font-family:var(--mono); font-size:12px; color:var(--coral); margin:3px 0 6px;}
+  .exp-desc{font-size:14px; color:var(--muted);}
+  .exp-desc li{margin-left:18px;}
 
-.project-btn:hover{
-    background:#1f6feb;
-    transform:translateY(-2px);
-}
-    }
+  /* ---------- PROJECTS ---------- */
+  .project-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:920px){.project-grid{grid-template-columns:1fr;}}
+  .project-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:22px;
+    display:flex; flex-direction:column; gap:12px; transition:.2s;
+  }
+  .project-card:hover{transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--coral);}
+  .stack-tag{
+    align-self:flex-start; font-family:var(--mono); font-size:10.5px; font-weight:600;
+    background:var(--indigo-soft); color:var(--status-indigo); padding:4px 9px; border-radius:6px; letter-spacing:.02em;
+  }
+  .project-card h3{font-size:16px; font-weight:700;}
+  .project-card p{font-size:13.5px; color:var(--muted); flex:1;}
+
+  /* ---------- SKILLS tag cloud ---------- */
+  .skill-block{margin-bottom:26px;}
+  .skill-block:last-child{margin-bottom:0;}
+  .skill-block h3{
+    font-family:var(--mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:12px; font-weight:600;
+  }
+  .tag-cloud{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-size:13px; font-weight:500; padding:7px 13px; border-radius:8px;
+    background:var(--surface); border:1px solid var(--line); color:var(--text);
+  }
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-list{list-style:none; display:flex; flex-direction:column;}
+  .cert-list li{
+    display:flex; justify-content:space-between; gap:14px; padding:14px 0; border-bottom:1px solid var(--line);
+    font-size:14px; flex-wrap:wrap;
+  }
+  .cert-list li:last-child{border-bottom:none;}
+  .cert-name{font-weight:600;}
+  .cert-id{font-family:var(--mono); font-size:12px; color:var(--muted);}
+
+  /* ---------- REFERENCES ---------- */
+  .ref-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:640px){.ref-grid{grid-template-columns:1fr;}}
+  .ref-card{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px;}
+  .ref-card h3{font-size:15px; font-weight:700; margin-bottom:4px;}
+  .ref-card .role{font-size:13px; color:var(--muted); margin-bottom:8px;}
+  .ref-card a{font-size:13px; color:var(--status-coral); font-weight:600;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:#0B0C12; color:#D6D7E6; padding:60px 0 26px; margin-top:10px;
+  }
+  html[data-theme="light"] footer{background:#12131C;}
+  .footer-inner{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px;}
+  @media (max-width:760px){.footer-inner{grid-template-columns:1fr; gap:32px;}}
+  footer h4{
+    font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:#767AA0; margin-bottom:16px; font-weight:600;
+  }
+  footer .foot-name{font-family:var(--display); font-weight:800; font-size:21px; color:#fff; margin-bottom:8px;}
+  footer .foot-tag{font-size:13.5px; color:#9C9DB8; max-width:36ch;}
+  footer ul{list-style:none;}
+  footer ul li{margin-bottom:12px; font-size:14px;}
+  footer ul li a{display:inline-flex; align-items:center; gap:10px; color:#D6D7E6;}
+  footer ul li a:hover{color:var(--coral);}
+  footer ul li i{width:16px; color:var(--coral);}
+  .foot-bottom{
+    margin-top:44px; padding-top:22px; border-top:1px solid #22243A;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:var(--mono); font-size:12px; color:#5E607C;
+  }
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    .cursor, .build-badge .dot, .progress-fill{animation:none;}
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>S. M MEHEDI HASAN</h1>
-
-  <!-- Menu Toggle -->
-  <input type="checkbox" id="menu-toggle">
-  <label for="menu-toggle" id="menu-icon">&#9776;</label>
-
-  <!-- Navigation -->
-<nav id="navbar">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#research">Research</a>
-    <a href="#projects">Projects</a>
-    <a href="#achievements">Achievements</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#skills">Skills</a>
-    
-    <a href="#contact">Contact</a>
-</nav>
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo"><span class="bracket">&lt;</span>mehedi.hasan<span class="bracket">/&gt;</span></div>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#research">Research</a>
+      <a href="#building">Building</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle day/night mode">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+    </div>
+  </div>
 </header>
 
-<script>
-(function() {
-  function responsiveHeader(){
-      const navbar = document.getElementById('navbar');
-      const icon = document.getElementById('menu-icon');
-      if(window.innerWidth <= 768){
-          navbar.style.flexDirection = 'column';
-          navbar.style.position = 'absolute';
-          navbar.style.top = '60px';
-          navbar.style.left = '0';
-          navbar.style.background = '#0A192F';
-          navbar.style.width = '100%';
-          navbar.style.display = 'none';
-          Array.from(navbar.children).forEach(a => {
-              a.style.margin = '10px 0';
-              a.style.textAlign = 'center';
-          });
-          icon.style.display = 'block';
-      } else {
-          navbar.style.display = 'flex';
-          navbar.style.flexDirection = 'row';
-          icon.style.display = 'none';
-      }
-  }
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">train_profile.py</div>
+      <h1 class="name">S. M Mehedi<br>Hasan</h1>
+      <div class="role">CSE Undergraduate · ML &amp; Software Researcher</div>
+      <p class="tagline">CGPA 3.70 with award-winning research, ACM-sponsored conference papers, and cross-functional leadership — seeking a Product &amp; Technology internship.</p>
+      <div class="chip-row">
+        <a class="chip" href="tel:+8801600334597"><i class="fa-solid fa-phone"></i>+880 1600334597</a>
+        <a class="chip" href="#contact"><i class="fa-solid fa-location-dot"></i>Dhaka, Bangladesh</a>
+        <a class="chip" href="mailto:smmehedihasan335@gmail.com"><i class="fa-solid fa-envelope"></i>Email</a>
+        <a class="chip" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+        <a class="chip" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
+        <a class="chip" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i>Portfolio</a>
+      </div>
+    </div>
 
-  responsiveHeader();
-  window.addEventListener('resize', responsiveHeader);
-
-  document.getElementById('menu-toggle').addEventListener('change', function(){
-      const navbar = document.getElementById('navbar');
-      navbar.style.display = this.checked ? 'flex' : 'none';
-  });
-})();
-</script>
-
-
-<section id="home">
-  <div class="box flex">
-    <img src="./images/IMG_20231014_124927.jpg" alt="Profile" class="profile">
-    <div class="intro-text">
-      <h2>Hi, I'm <span class="highlight">S. M Mehedi Hasan</span></h2>
-      <p>Third-year <span class="highlight">Computer Science</span> student at 
-        <strong>American International University-Bangladesh</strong> with a deep passion for 
-        <span class="highlight">technology</span>, innovation, and problem-solving.  
-        Skilled in crafting <span class="highlight">modern, responsive applications</span> and eager to take on 
-        challenges that make a meaningful difference. Always exploring new tools, frameworks, and 
-        ideas to create solutions that are not only functional but inspiring.</p>
-      
-      <!-- Download CV Button -->
-      <div style=" margin-top:20px;">
-        <a href="./files/SM_Mehedi_Hasan_CV.pdf" download 
-           style="display:inline-block;padding:14px 32px;
-                  background:linear-gradient(135deg,#4e73df,#1cc88a);
-                  color:#fff;font-weight:600;text-decoration:none;
-                  border-radius:50px;font-size:16px;
-                  box-shadow:0 6px 15px rgba(0,0,0,0.2);
-                  transition:all 0.3s ease; transform:translateY(0);">
-          📄 Download CV
-        </a>
+    <div class="terminal">
+      <div class="term-bar">
+        <div class="term-bar-top">
+          <span class="term-title">train_profile.py — running</span>
+          <span class="term-status">LIVE</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill"></div></div>
+      </div>
+      <div class="term-body">
+        <div class="term-line"><span class="tag">$</span> python train_profile.py --candidate "S M Mehedi Hasan"</div>
+        <div class="term-line muted">&gt; loading checkpoints...</div>
+        <div class="term-line">[epoch 1/5] education ................ <span class="ok">done</span></div>
+        <div class="term-line">[epoch 2/5] research_publications ..... <span class="ok">done</span> <span class="tag">(3 papers)</span></div>
+        <div class="term-line">[epoch 3/5] awards_achievements ....... <span class="ok">done</span></div>
+        <div class="term-line">[epoch 4/5] projects .................. <span class="ok">done</span></div>
+        <div class="term-line">[epoch 5/5] skills .................... <span class="ok">done</span></div>
+        <div class="term-line" style="margin-top:6px;">val_accuracy: <span class="num">0.962</span> &nbsp;|&nbsp; cgpa_score: <span class="num">3.70</span>/4.00</div>
+        <div class="term-summary">status: ready_for_deployment → Product &amp; Technology Internship <span class="cursor"></span></div>
       </div>
     </div>
   </div>
 </section>
 
-<script>
-  // Add hover animation effect
-  document.querySelectorAll('a[download]').forEach(btn => {
-    btn.addEventListener("mouseover", () => {
-      btn.style.transform = "translateY(-3px) scale(1.05)";
-      btn.style.boxShadow = "0 10px 20px rgba(0,0,0,0.25)";
-    });
-    btn.addEventListener("mouseout", () => {
-      btn.style.transform = "translateY(0) scale(1)";
-      btn.style.boxShadow = "0 6px 15px rgba(0,0,0,0.2)";
-    });
-  });
-</script>
-
-
-
-
 <section id="about">
-    <div class="box about-container">
-        <div class="about-text">
-            <h1 class="section-title">About Me</h1>
-            <p>
-                I am a proactive and detail-oriented <span class="highlight">Computer Science undergraduate</span> 
-                with experience in administrative support, student engagement, and event coordination. 
-                Former Campus Ambassador at <strong>ICT Olympiad Bangladesh</strong>, skilled in Microsoft Office, 
-                communication, and organizing campus-wide initiatives.
-            </p>
-            <p>
-                Demonstrates a strong work ethic, professional demeanor, and the ability to work both independently 
-                and collaboratively. Adept at handling multiple responsibilities with efficiency and enthusiasm. 
-                Quickly adapting, tech-savvy, and eager to contribute to a structured academic environment with 
-                professionalism and a <span class="highlight">can-do attitude</span>.
-            </p>
-            <div class="about-video" style="flex:1 1 400px;min-width:280px;display:flex;justify-content:center;">
-
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div class="eyebrow">about</div>
+      <h2 class="title">Summary</h2>
+    </div>
+    <p class="about-text">Computer Science and Engineering undergraduate (CGPA 3.70/4.00) with award-winning research, conference presentations, and cross-functional leadership through campus ambassadorship and peer review work. Combines a strong technical foundation in software development and applied machine learning with communication, organizing, and stakeholder engagement skills built through outreach programs and academic conferences. Seeking to bring an analytical, collaborative, and adaptable mindset to a corporate internship in Product &amp; Technology.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="num">3.70</div><div class="lbl">CGPA / 4.00</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Conference Papers</div></div>
+      <div class="stat"><div class="num">96.2%</div><div class="lbl">Kaggle Balanced Accuracy</div></div>
+      <div class="stat"><div class="num">2026</div><div class="lbl">Expected Graduation</div></div>
+    </div>
   </div>
-        </div>
-      <div class="slider">
-    <div class="slide-track">
-        <img src="./images/certificate.jpg" alt="Addressing audience" class="slide">
-        <img src="./images/jetto.jpg" alt="Event" class="slide">
-        <img src="./images/presenattion.jpg" alt="Presentation" class="slide">
-        <img src="./images/addresss.jpg" alt="Addressing audience" class="slide">
-        <img src="./images/online_event.jpg" alt="Event" class="slide">
-    </div>
-</div>
-
-    </div>
-</section>
-
-
-<section id="experience">
-    <h1 class="section-title">Experience</h1>
-    <hr>
-    <div class="box experience-box">
-    <a href="https://www.ictolympiadbangladesh.com/" target="_blank" style="text-decoration:none;">
-        <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-    <img src="./images/ict.jpg" alt="ICT Olympiad" 
-         style="width:200px; height:auto; object-fit:contain; display:block;">
-</div>
-
-    </a>
-    <h3 style="color:#58a6ff; text-align:center; margin-bottom:5px;">
-        <a href="https://www.ictolympiadbangladesh.com/" target="_blank" style="color:#58a6ff; text-decoration:none;">Campus Ambassador S2 - ICT Olympiad Bangladesh</a>
-    </h3>
-    <p style="color:#8b949e; text-align:center; font-style:italic; margin-top:0;">Oct 2024 – May 2025</p>
-    <div style="color:#c9d1d9; line-height:1.6; padding-left:10px;">
-    <p>Greeted and communicated with students, teachers, and organizers during events, ensuring a smooth campus outreach experience.
-    Responded to inquiries and promoted programs, helping students and participants understand registration procedures and event schedules.
-    Maintained accurate records and collaborated with the central team to ensure proper coordination and smooth execution of all activities.</p>
-</div>
-
-</div>
-
-
-   <div class="box experience-box">
-    <a href="https://www.youtube.com/@TriangleTech71" target="_blank" style="text-decoration:none;">
-        <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-    <img src="./images/traYoutube_logo.png" alt="Youtube" 
-         style="width:200px; height:auto; object-fit:contain; display:block;">
-</div>
-
-    </a>
-    <h3 style="color:#58a6ff; text-align:center; margin-bottom:5px;">
-        <a href="https://www.youtube.com/@TriangleTech71" target="_blank" style="color:#58a6ff; text-decoration:none;">
-            Content Creator – YouTube (@TriangleTech71)
-        </a>
-    </h3>
-    <p style="color:#8b949e; text-align:center; font-style:italic; margin-top:0;">Nov 2023 – Present</p>
-    <div style="color:#c9d1d9; line-height:1.6; padding-left:10px;">
-        <p>Created and managed educational programming content, focusing on computer science concepts and software tutorials.
-        Designed engaging thumbnails and titles to improve visibility and audience retention.
-        Shared tutorials and study strategies while actively engaging with the audience to build a learning community.</p>
-    </div>
-</div>
-
 </section>
 
 <section id="education">
-    <h1 class="section-title">Education</h1>
-    <hr>
-
-    
-    <!-- AIUB -->
-   <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-    <img src="./images/aiub-logo.png" alt="aiub" 
-         style="width:200px; height:auto; object-fit:contain; display:block;">
-</div>
-
-
-        </div>
-        <!-- Description -->
-        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
-            <h4 style="color:#58a6ff; margin-bottom:5px;">BSc, Computer Science and Engineering</h4>
-            <p style="margin:2px 0;"><strong>American International University-Bangladesh (AIUB), Dhaka</strong> - 
-            <a href="https://www.aiub.edu" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
-            <p style="color:#8b949e; margin:2px 0;">2022 – Present | CGPA: 3.71</p>
-            <p>The Bachelor of Science in Computer Science and Engineering at AIUB equips students with a strong foundation in software development, 
-                data structures, algorithms, and emerging technologies. Emphasis is placed on hands-on projects, teamwork, and developing problem-solving skills, 
-                preparing graduates for both industry and research opportunities. Coursework includes programming, databases, networks, and AI.</p>
-        </div>
-        <hr>
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div class="eyebrow">education</div>
+      <h2 class="title">Education</h2>
     </div>
-
-    <!-- HSC -->
-    <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-    <img src="./images/gssc.jpg" alt="gssc" 
-         style="width:200px; height:auto; object-fit:contain; display:block;">
-</div>
-
-        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
-            <h4 style="color:#58a6ff; margin-bottom:5px;">Higher Secondary Certificate (HSC)</h4>
-            <p style="margin:2px 0;"><strong>Govt. Shah Sultan College, Bogura - 5800</strong></p>
-            <a href="https://govssc.edu.bd/" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
-            <p style="color:#8b949e; margin:2px 0;">Result: 5.0/5.0</p>
-            <p>The Higher Secondary Certificate program at Govt. Shah Sultan College provided a solid academic foundation in science and mathematics, 
-            developing critical thinking, analytical skills, and a strong work ethic that prepared me for undergraduate studies in Computer Science.</p>
-        </div>
-        <hr>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">SEPTEMBER 2022 — AUGUST 2026</div>
+        <div class="tl-title">Bachelor of Science in Computer Science &amp; Engineering</div>
+        <div class="tl-sub">American International University-Bangladesh (AIUB) · CGPA: 3.70 / 4.00</div>
+      </div>
     </div>
-
-    <!-- SSC -->
-   <div style="display:flex; justify-content:center; align-items:center; margin:20px 0;">
-    <img src="./images/plsc.png" alt="plsc" 
-         style="width:200px; height:auto; object-fit:contain; display:block;">
-</div>
-
-        <div style="flex:1; color:#c9d1d9; line-height:1.6;">
-            <h4 style="color:#58a6ff; margin-bottom:5px;">Secondary School Certificate (SSC)</h4>
-            <p style="margin:2px 0;"><strong>Police Lines School and College, Bogura - 5800</strong></p>
-            <a href="https://plscb.edu.bd/" target="_blank" style="color:#58a6ff; text-decoration:none;">Visit Website</a></p>
-            <p style="color:#8b949e; margin:2px 0;">Result: 5.0/5.0</p>
-            <p>The Secondary School Certificate curriculum emphasized fundamental science, mathematics, and critical reasoning, fostering a disciplined and curious mindset 
-            that laid the groundwork for future studies in Computer Science.</p>
-        </div>
-        <hr>
-    </div>
-
+  </div>
 </section>
-    ```html
-<section id="projects">
 
-    <h1 class="section-title">Projects</h1>
-
-    <div class="box">
-
-        <!-- Project 1 -->
-
-        <div style="margin-bottom:35px;">
-
-            <h2 style="color:#58a6ff;">
-                🏥 DocMateV3 – Healthcare Management System
-            </h2>
-
-            <p>
-                <strong>Tech Stack:</strong>
-                PHP, MySQL, JavaScript, MVC Architecture
-            </p>
-
-            <ul>
-
-                <li>Designed and developed a full-stack healthcare management platform with Admin, Doctor, and Patient roles.</li>
-
-                <li>Implemented secure session-based authentication and role-based dashboards.</li>
-
-                <li>Built appointment booking, doctor availability management, medicine CRUD operations, and patient management modules.</li>
-
-                <li>Integrated AJAX for real-time updates without page reload.</li>
-
-                <li>Designed a normalized relational database with complex one-to-many and one-to-one relationships.</li>
-
-            </ul>
-
-            <div style="margin-top:15px;">
-                <a href="#" class="project-btn">GitHub</a>
-                <a href="#" class="project-btn">Live Demo</a>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <!-- Project 2 -->
-
-        <div style="margin:35px 0;">
-
-            <h2 style="color:#58a6ff;">
-                🐶 Peddy – Interactive Pet Adoption Platform
-            </h2>
-
-            <p>
-                <strong>Tech Stack:</strong>
-                JavaScript, REST API, Tailwind CSS, DaisyUI
-            </p>
-
-            <ul>
-
-                <li>Developed a responsive pet adoption platform supporting over 100+ dynamic listings.</li>
-
-                <li>Integrated REST APIs for real-time filtering, searching, and sorting.</li>
-
-                <li>Implemented asynchronous data loading and interactive adoption workflow.</li>
-
-                <li>Created animated adoption confirmation modal using modern JavaScript DOM manipulation.</li>
-
-                <li>Optimized the interface for mobile, tablet, and desktop devices.</li>
-
-            </ul>
-
-            <div style="margin-top:15px;">
-                <a href="#" class="project-btn">GitHub</a>
-                <a href="#" class="project-btn">Live Demo</a>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <!-- Project 3 -->
-
-        <div style="margin-top:35px;">
-
-            <h2 style="color:#58a6ff;">
-                🩺 RenalVision – Kidney CT Diagnosis Bot
-            </h2>
-
-            <p>
-                <strong>Tech Stack:</strong>
-                PyTorch, Deep Learning, Computer Vision, Scikit-learn, OpenCV, XGBoost, Telegram Bot
-            </p>
-
-            <ul>
-
-                <li>Built an ensemble deep learning framework for kidney CT scan classification.</li>
-
-                <li>Applied transfer learning using EfficientNet and ResNet architectures.</li>
-
-                <li>Performed preprocessing, feature extraction, and SMOTE-based class balancing.</li>
-
-                <li>Combined SVM, Random Forest, and XGBoost through ensemble voting for improved accuracy.</li>
-
-                <li>Developed an interactive Telegram bot capable of real-time diagnosis with confidence scores.</li>
-
-            </ul>
-
-            <div style="margin-top:15px;">
-                <a href="#" class="project-btn">GitHub</a>
-                <a href="#" class="project-btn">Research</a>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-```
-
-
-<br>
-<h1 style="text-align:center;">Skills</h1>
-
-<!-- Font Awesome (place in <head> or before this section) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-<section id="skills" style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;padding:30px;">
-
-
-      <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-code" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">C#</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fab fa-python" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Python</span>
-  </div>
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-magic" style="font-size:32px;margin-bottom:12px;color:#e83e8c;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Prompting</span>
-</div>
-
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-database" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">SQL</span>
-  </div>
-  
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fab fa-microsoft" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Microsoft Office</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-comments" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Professional Communication</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-users" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Team Coordination</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-bullhorn" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Event & Campaign Support</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-user-graduate" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Student Outreach</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-tasks" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Administrative Tasks</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-chalkboard" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Presentation Prep</span>
-  </div>
-
-  <div style="width:180px;padding:20px;background:#fff;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;transition:.3s;">
-    <i class="fas fa-bolt" style="font-size:32px;margin-bottom:12px;color:#4e73df;"></i>
-    <span style="font-size:14px;font-weight:600;color:#333;text-align:center;">Quick Learner</span>
-  </div>
 <section id="research">
-
-<h1 class="section-title">Research</h1>
-
-<div class="box">
-
-<h2 style="color:#58a6ff;">Published Research</h2>
-
-<div class="research-card">
-
-<h3>
-Benefits of NLP Tools for Speaking Development of Second Language Learners
-</h3>
-
-<p>
-Presented and Published in the
-<b>8th IEOM Bangladesh International Conference on Industrial Engineering and Operations Management</b>,
-Dhaka, Bangladesh.
-</p>
-
-<ul>
-
-<li><b>Publisher:</b> IEOM Society International</li>
-
-<li><b>Conference Date:</b> December 20–21, 2025</li>
-
-<li><b>ISBN:</b> 979-8-3507-4441-5</li>
-
-<li><b>ISSN:</b> 2169-8767</li>
-
-<li><b>DOI:</b>
-<a href="https://doi.org/10.46254/BA08.20250371" target="_blank">
-10.46254/BA08.20250371
-</a>
-</li>
-
-<li><b>Award:</b> Best Track Paper Award</li>
-
-</ul>
-
-</div>
-
-<hr>
-
-<h2 style="color:#58a6ff;">Research In Progress</h2>
-
-<div class="research-card">
-
-<h3>Impact of GenAI on Critical Thinking in University Students</h3>
-
-<p>
-
-<b>Conference:</b>
-
-2nd IEEE International Conference on Quantum Photonics, Artificial Intelligence & Networking
-
-</p>
-
-<p>Status: <span style="color:orange;">Under Revision</span></p>
-
-</div>
-
-<div class="research-card">
-
-<h3>AgriX: Design and Feasibility of an AI-Integrated Platform for Smart Agriculture in Bangladesh</h3>
-
-<p>
-
-<b>Conference:</b>
-
-4th International Conference on Computing Advancements (ICCA 2026)
-
-</p>
-
-<p>
-
-Conference Date: October 15–16, 2026
-
-</p>
-
-<p>
-
-Status:
-<span style="color:lightgreen;">Submitted</span>
-
-</p>
-
-<p>
-
-ACM Sponsored
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-    <section id="achievements">
-
-<h1 class="section-title">
-Awards & Achievements
-</h1>
-
-<div class="box">
-
-<ul>
-
-<li>
-
-🏆 <b>Best Track Paper Award</b>
-
-<br>
-
-8th IEOM Bangladesh International Conference
-
-<br>
-
-Engineering Education and Curriculum Improvement Track
-
-</li>
-
-<br>
-
-<li>
-
-🏅 Campus Ambassador
-
-ICT Olympiad Bangladesh Season 2
-
-Certificate of Appreciation
-
-</li>
-
-<br>
-
-<li>
-
-📝 Technical Paper Reviewer
-
-IEOM Society International
-
-Reviewed 3 Technical Papers
-
-</li>
-
-<br>
-
-<li>
-
-🎓 Career Development Program
-
-American International University-Bangladesh
-
-Certificate No: CDP-268704
-
-</li>
-
-</ul>
-
-</div>
-
-</section>
-    
-  
-
-
-
-
-<section id="certifications">
-
-<h1 class="section-title">
-
-Professional Certifications
-
-</h1>
-
-<div class="box">
-
-<table>
-
-<tr>
-
-<th>Certificate</th>
-
-<th>Provider</th>
-
-<th>Verification ID</th>
-
-</tr>
-
-<tr>
-
-<td>Python (Basic)</td>
-
-<td>HackerRank</td>
-
-<td>8ebc476a1e15</td>
-
-</tr>
-
-<tr>
-
-<td>Windows Command Line Basics</td>
-
-<td>Udemy</td>
-
-<td>UC-e24f421d-e7c7-4203-8b15-c3d7e5e28f8d</td>
-
-</tr>
-
-<tr>
-
-<td>Foundational C# with Microsoft</td>
-
-<td>freeCodeCamp</td>
-
-<td>fcc15cbe461-4e47-44c1-8ad9-8bea51a36446-fcswm</td>
-
-</tr>
-
-<tr>
-
-<td>Prompt Engineering</td>
-
-<td>Programming Hero</td>
-
-<td>PH46360</td>
-
-</tr>
-
-</table>
-
-<br>
-
-<p style="color:#8b949e;text-align:center;">
-
-All certificates include their official verification IDs and are verifiable through their respective issuing platforms.
-
-</p>
-
-</div>
-
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div class="eyebrow">research &amp; publications</div>
+      <h2 class="title">Research &amp; Publications</h2>
+    </div>
+    <div class="paper-list">
+      <div class="paper-card">
+        <div class="paper-icon"><i class="fa-solid fa-award"></i></div>
+        <div>
+          <h3>8th IEOM Bangladesh International Conference on Industrial Engineering and Operations Management (2025)</h3>
+          <div class="paper-meta">"Benefits of NLP Tools for Speaking Development of Second Language Learners"</div>
+          <div class="paper-meta">Track: Engineering Education and Curriculum Improvement</div>
+          <span class="status-badge status-published"><i class="fa-solid fa-check"></i> Published · Best Track Paper Award</span>
+          <br>
+          <a class="paper-link" href="https://doi.org/10.46254/BA08.20250371" target="_blank" rel="noopener">Read the Paper <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-icon"><i class="fa-solid fa-file-lines"></i></div>
+        <div>
+          <h3>A Game-Theoretic Approach to Multi-Stakeholder Requirement Prioritization in Software Engineering</h3>
+          <div class="paper-meta">4th International Conference on Computing Advancements (ICCA 2026)</div>
+          <div class="paper-meta">Track: Software Engineering &amp; Digital Transformation · ACM Sponsored · AIUB, Dhaka · Oct 15–16, 2026</div>
+          <span class="status-badge status-submitted"><i class="fa-solid fa-clock"></i> Submitted</span>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-icon"><i class="fa-solid fa-file-lines"></i></div>
+        <div>
+          <h3>A Comparative Performance Analysis of State-of-the-Art Deep Learning Architectures for Malting Barley Disease Classification</h3>
+          <div class="paper-meta">4th International Conference on Computing Advancements (ICCA 2026)</div>
+          <div class="paper-meta">Track: Artificial Intelligence &amp; Intelligent Systems · ACM Sponsored · AIUB, Dhaka · Oct 15–16, 2026</div>
+          <span class="status-badge status-submitted"><i class="fa-solid fa-clock"></i> Submitted</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<script>
-  let currentSlide = 0;
-  function moveSlide(direction) {
-    const slider = document.getElementById("cert-slider");
-    const totalSlides = slider.children.length;
-    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-  }
-
-  // Auto-slide every 5 seconds
-  setInterval(() => {
-    moveSlide(1);
-  }, 5000);
-</script>
-
-<br>
-
-
-<footer id="contact" style="background:#161b22; padding:40px 20px; color:#c9d1d9; display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; border-top:2px solid #58a6ff; box-shadow:0 -5px 20px rgba(88,166,255,0.2);">
-
-  <!-- About / Logo -->
-  <div style="flex:1; min-width:250px;">
-    <h2 style="color:#58a6ff; margin-bottom:10px;">S. M Mehedi Hasan</h2>
-    <p>Computer Science Student | Researcher | Tech Enthusiast</p>
-    <p>Always exploring innovative solutions and creating impactful projects.</p>
+<section id="building">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div class="eyebrow">currently building</div>
+      <h2 class="title">Currently Building</h2>
+    </div>
+    <div class="build-grid">
+      <div class="build-card">
+        <span class="build-badge"><span class="dot"></span>IN PROGRESS</span>
+        <h3>SmartRecSys-2026</h3>
+        <p>A hybrid recommendation system using SBERT embeddings and a stacked gradient boosting ensemble.</p>
+      </div>
+      <div class="build-card">
+        <span class="build-badge"><span class="dot"></span>IN PROGRESS</span>
+        <h3>CASCADE-GEO</h3>
+        <p>Context-aware spatial attention for cyber-attack detection in energy grid operations.</p>
+      </div>
+    </div>
   </div>
+</section>
 
-  <!-- Contact -->
-  <div style="min-width:200px;">
-    <h3 style="color:#58a6ff; margin-bottom:10px;">Contact Me</h3>
-    <a href="mailto:hasanmehedi63395@gmail.com" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;"> 
-      <img src="./images/gmail-logo-on-transparent-white-background-free-vector.jpg" alt="Gmail" style="width:25px; height:25px;"> Gmail 
-    </a>
-    <a href="https://facebook.com" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
-      <img src="./images/fac.jpg" alt="Facebook" style="width:25px; height:25px;"> Facebook
-    </a>
-    <a href="https://www.linkedin.com/in/sm-mehedihasan25/" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
-      <img src="./images/LinkedIn_logo_initials.png" alt="LinkedIn" style="width:25px; height:25px;"> LinkedIn
-    </a>
-    <a href="https://github.com/sm-mehedi" target="_blank" style="display:flex; align-items:center; gap:8px; color:#c9d1d9; text-decoration:none; margin-bottom:8px; transition:all 0.3s;">
-  <img src="./images/git.png" alt="GitHub" style="width:25px; height:25px;"> GitHub
-</a>
-
+<section id="awards">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div class="eyebrow">awards &amp; achievements</div>
+      <h2 class="title">Awards &amp; Achievements</h2>
+    </div>
+    <div class="ach-grid">
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fa-solid fa-trophy"></i></div>
+        <div>
+          <h3>Best Track Paper Award</h3>
+          <p>8th IEOM Bangladesh Conference (2025) — "Benefits of NLP Tools for Speaking Development of Second Language Learners," Engineering Education &amp; Curriculum Improvement track.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fa-brands fa-kaggle"></i></div>
+        <div>
+          <h3>Kaggle — Predicting Stellar Class (Playground S6E6)</h3>
+          <p>96.2% balanced accuracy among 2,183 teams (4,600+ entrants) on a multi-class stellar classification challenge, using ensemble learning and feature engineering.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div>
+          <h3>Technical Paper Reviewer</h3>
+          <p>Independently reviewed 3 technical papers for IEOM Society International at the 8th IEOM Bangladesh Conference (2025).</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fa-solid fa-people-group"></i></div>
+        <div>
+          <h3>Campus Ambassador — ICT Olympiad Bangladesh, Season 2</h3>
+          <p>Promoted ICT education and coordinated outreach events at university level; Certificate of Appreciation (2025).</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div>
+          <h3>Career Development Program — AIUB Collaboration</h3>
+          <p>Completed intensive career-building workshop, January 2026. Certificate No: CDP-268704.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fa-solid fa-robot"></i></div>
+        <div>
+          <h3>Robo Soccer — EWU National RoboFest 2026</h3>
+          <p>Led a team as Team Lead in the Robo Soccer segment at a national robotics competition hosted by East West University Robotics Club, June 28–29, 2026.</p>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <!-- Address -->
-  <div style="flex:1; min-width:250px;">
-    <h3 style="color:#58a6ff; margin-bottom:10px;">Address</h3>
-    <p>Kuratoli, Dhaka, Bangladesh</p>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.384132915767!2d90.4217865!3d23.8209686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c6489f1f33bf%3A0x8cf48cff0b79ee99!2sKuratolii%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1692100000000!5m2!1sen!2sbd" 
-      width="100%" height="150" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+<section id="experience">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div class="eyebrow">experience</div>
+      <h2 class="title">Experience</h2>
+    </div>
+    <div class="exp-entry">
+      <div class="exp-icon"><i class="fa-solid fa-briefcase"></i></div>
+      <div>
+        <div class="exp-title">Campus Ambassador — ICT Olympiad Bangladesh, Season 2</div>
+        <div class="exp-meta">2024 – 2025</div>
+        <ul class="exp-desc">
+          <li>Promoted the program and increased student engagement on campus through organized outreach events.</li>
+          <li>Encouraged participation in ICT-related competitions; strengthened leadership, communication, and networking skills.</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</section>
 
+<section id="projects">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div class="eyebrow">projects</div>
+      <h2 class="title">Projects</h2>
+    </div>
+    <div class="project-grid">
+      <div class="project-card">
+        <span class="stack-tag">PHP · MySQL · JS · MVC</span>
+        <h3>DocMateV3 — Healthcare Management System</h3>
+        <p>Full-stack healthcare platform with 3 user roles (Admin, Doctor, Patient) using MVC architecture and session-based authentication. Real-time AJAX features for availability, appointment status, and live statistics.</p>
+      </div>
+      <div class="project-card">
+        <span class="stack-tag">PyTorch · Deep Learning · CV</span>
+        <h3>RenalVision — Kidney CT Diagnosis Bot</h3>
+        <p>Ensemble deep learning system for kidney abnormality classification using EfficientNet + ResNet transfer learning. End-to-end pipeline with SMOTE balancing, deployed as a Telegram bot with real-time inference over 12,000 CT images.</p>
+      </div>
+      <div class="project-card">
+        <span class="stack-tag">JS · REST API · Tailwind</span>
+        <h3>Peddy — Interactive Pet Adoption Platform</h3>
+        <p>A responsive pet adoption platform with real-time filtering, async API data handling, and a mobile-friendly UI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div class="eyebrow">skills</div>
+      <h2 class="title">Skills</h2>
+    </div>
+    <div class="skill-block">
+      <h3>Languages</h3>
+      <div class="tag-cloud">
+        <span class="tag">C++</span><span class="tag">Java</span><span class="tag">Python</span>
+        <span class="tag">JavaScript</span><span class="tag">C#</span><span class="tag">SQL</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <h3>ML / AI</h3>
+      <div class="tag-cloud">
+        <span class="tag">PyTorch</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span>
+        <span class="tag">LightGBM</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span>
+        <span class="tag">Hugging Face</span><span class="tag">OpenCV</span><span class="tag">Grad-CAM</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <h3>Web</h3>
+      <div class="tag-cloud">
+        <span class="tag">HTML/CSS</span><span class="tag">Tailwind CSS</span><span class="tag">REST APIs</span>
+        <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Firebase</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <h3>Database</h3>
+      <div class="tag-cloud">
+        <span class="tag">MySQL</span><span class="tag">Microsoft SQL Server</span>
+        <span class="tag">Oracle SQL</span><span class="tag">MongoDB</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <h3>Tools &amp; Practices</h3>
+      <div class="tag-cloud">
+        <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Agile</span>
+        <span class="tag">SDLC</span><span class="tag">UML</span><span class="tag">SOLID</span>
+        <span class="tag">MVC</span><span class="tag">CI/CD concepts</span><span class="tag">Linux</span>
+      </div>
+    </div>
+
+    <div class="skill-block" style="margin-top:36px;">
+      <h3>Certifications</h3>
+      <ul class="cert-list">
+        <li><span class="cert-name">Python — HackerRank</span><span class="cert-id">Feb 2025 · ID 8ebc476a1e15</span></li>
+        <li><span class="cert-name">Foundational C# with Microsoft — freeCodeCamp</span><span class="cert-id">Aug 2024 · ID fcc15cbe461-4e47-44c1-8ad9-8bea51a36446-fcswm</span></li>
+        <li><span class="cert-name">Prompt Engineering — Programming Hero</span><span class="cert-id">Jun 2024 · ID PH4636</span></li>
+        <li><span class="cert-name">Windows Command Line Basics — Udemy</span><span class="cert-id">May 2023 · ID UC-e24f421d-e7c7-4203-8b15-c3d7e5e28f8d</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="references">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div class="eyebrow">references</div>
+      <h2 class="title">References</h2>
+    </div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <h3>Anik Kumar Saha</h3>
+        <div class="role">Lecturer, Department of Computer Science, AIUB</div>
+        <a href="mailto:anik.kumar@aiub.edu">anik.kumar@aiub.edu</a>
+      </div>
+      <div class="ref-card">
+        <h3>Iftekhar Mahmud</h3>
+        <div class="role">Lecturer, Department of English, AIUB</div>
+        <a href="mailto:iftekhar@aiub.edu">iftekhar@aiub.edu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="foot-name">S. M Mehedi Hasan</div>
+      <p class="foot-tag">CSE Undergraduate at AIUB — open to Product &amp; Technology internships and research collaborations.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+8801600334597"><i class="fa-solid fa-phone"></i>+880 1600334597</a></li>
+        <li><a href="mailto:smmehedihasan335@gmail.com"><i class="fa-solid fa-envelope"></i>smmehedihasan335@gmail.com</a></li>
+        <li><a href="#"><i class="fa-solid fa-location-dot"></i>Dhaka, Bangladesh</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a></li>
+        <li><a href="#" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a></li>
+        <li><a href="#" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i>Portfolio</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 S. M Mehedi Hasan</span>
+    <span>status: ready_for_deployment ✓</span>
+  </div>
 </footer>
 
-<style>
-  footer a:hover {
-    color:#58a6ff;
-    transform: translateY(-3px);
-  }
-  footer iframe {
-    box-shadow: 0 0 10px rgba(88,166,255,0.3);
-  }
-  
-  @media (max-width: 768px) {
-    footer > div {
-      min-width: 100%;
-      margin-bottom: 20px;
-    }
-    
-    footer {
-      padding: 30px 15px;
-    }
-  }
-</style>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const themeBtn = document.getElementById('themeBtn');
+  const themeIcon = document.getElementById('themeIcon');
+  const html = document.documentElement;
+  themeBtn.addEventListener('click', () => {
+    const isLight = html.getAttribute('data-theme') === 'light';
+    html.setAttribute('data-theme', isLight ? 'dark' : 'light');
+    themeIcon.className = isLight ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+  });
+
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('nav.links a');
+  const onScroll = () => {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 90;
+      if (window.scrollY >= top) current = sec.getAttribute('id');
+    });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+  };
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
